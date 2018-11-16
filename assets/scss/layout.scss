@@ -1,0 +1,56 @@
+body {
+    margin-top: $navHeight;
+    font-family: $fontBody;
+    font-size: 14px;
+}
+
+.container {
+
+    margin: 0 auto;
+    max-width: 100%;
+    min-width: 200px;
+    padding: 0 25px;
+    &.full {
+        padding: 0;   
+    }
+
+
+    @include breakpoint(phone){
+        max-width: 100%;
+    }
+
+    @include breakpoint(phablet){
+        max-width: map-get($breakpoints, phablet);
+    }
+
+    @include breakpoint(tablet){
+        max-width: map-get($breakpoints, tablet) - 50;
+        padding: 0;
+    }
+
+    @include breakpoint(desktop){
+        max-width: map-get($breakpoints, desktop) - 50;
+    }
+
+    @include breakpoint(desktophd){
+        max-width: map-get($breakpoints, desktophd) - 50;
+    }
+}
+
+section {
+
+    padding: 5em 0;
+
+    .title {
+        font-size: 2em;
+        font-weight: 700;
+    }
+
+    &:nth-of-type(odd){
+        background-color: #EDEDED;
+    }
+
+    &:nth-of-type(even){
+        background-color: #FBFBFB;
+    }
+}

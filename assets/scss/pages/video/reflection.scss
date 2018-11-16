@@ -1,0 +1,72 @@
+section.reflection {
+    .container {
+        display: grid;
+        height: 100%;
+        grid-template-columns: 30px 1fr;
+        grid-template-rows: auto auto;
+        grid-gap: 25px 25px;
+        grid-template-areas:    "title title"  
+                                "question-image question" 
+                                "feedbackicon feedbacktext"  
+                                ". options";
+
+        @include breakpoint(phablet) {
+            grid-template-columns: 60px 1fr;
+        }
+
+
+        @include breakpoint(tablet) {
+            grid-template-columns: 60px 1.5fr 2px 1fr;
+            grid-template-rows: auto auto 1fr;
+            grid-gap: 25px 25px;
+            grid-template-areas:    "title title title title"  
+                                    "question-image question divider feedbackicon"  
+                                    ". options divider feedbacktext";
+        }
+    }
+
+    .title {
+        grid-area: title;
+    }
+
+    img.question {
+        grid-area: question-image;
+        // width: 60px;
+        height: 60px;
+        background-color: black;
+    }
+
+    div.question {
+        grid-area: question;
+        font-size: 1.15em;
+    }
+
+    .divider {
+        grid-area: divider;
+        background-color: #cecece;
+    }
+
+    img.feedback {
+        grid-area: feedbackicon;
+        // width: 60px;
+        height: 60px;
+        background-color: black;
+    }
+
+    .options {
+        grid-area: options;
+
+        .option {
+            margin-bottom: 25px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: antiquewhite;
+            }
+        }
+    }
+
+    div.feedback {
+        grid-area: feedbacktext;
+    }
+}

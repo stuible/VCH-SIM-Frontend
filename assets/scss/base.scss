@@ -1,0 +1,38 @@
+// ==========================================================================
+// SIM Stylesheet
+// ==========================================================================
+
+// Normalize CSS
+// @import "../../node_modules/normalize-scss/sass/normalize/_import-now.scss";
+
+//Fonts
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+// Variables and Colours
+@import "variables";
+
+// Breakpoints & Layout
+@import "breakpoints";
+// @import "layout";
+
+//Keyframe animations
+@import "animation";
+
+// // Component Styles
+// @import "components/navbar";
+// @import "components/footer";
+
+// //UI Styles
+// @import "components/ui";
+
+// //Page Styles
+// @import "pages/landing/hero";
+// @import "pages/landing/videogrid";
+
+// @import "pages/video/video";
+// @import "pages/video/reflection";
+// @import "pages/video/resources";
+// @import "pages/video/survey";
+// @import "pages/video/next-video";
+
+// @import "pages/registration/registration";
