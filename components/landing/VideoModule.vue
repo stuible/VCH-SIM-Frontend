@@ -1,15 +1,15 @@
 <template>
 <div>
-    <a href="video.html">
-        <div class="video" href="#">
-          <div class="thumbnail" style="background-image: url(../image/still.jpg)"></div>
+    <nuxt-link :to="'/video/' + video.slug">
+        <div class="video">
+          <div class="thumbnail" style="background-image: url(~assets/image/still.jpg)"></div>
           <div class="info">
-            <div class="timestamp">{{video.Length}}</div>
+            <div class="timestamp">{{video.length}}</div>
           </div>
-          <div class="description">{{video.Description}}</div>
+          <div class="description">{{video.description}}</div>
         </div>
-      </a>
-    <div class="title">{{video.Title}}</div>
+      </nuxt-link>
+    <div class="title">{{video.title}}</div>
 </div>
 </template>
 

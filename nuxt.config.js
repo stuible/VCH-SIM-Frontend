@@ -17,7 +17,7 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#5FE3C4' },
   /*
   ** Build configuration
   */
@@ -49,7 +49,7 @@ module.exports = {
     cockpit: {
       apiUrl: 'http://vchdesign.ca/stuible/cockpit/api',
       apiToken: 'ab9d712bf8f8be698edcdfc206c628',
-      baseUrl: 'https://<cockpit-url>'
+      baseURL: 'http://vchdesign.ca/stuible/cockpit'
     }
   },
   // css: [
@@ -58,6 +58,9 @@ module.exports = {
   modules: [
     ['nuxt-sass-resources-loader', '@/assets/scss/base.scss'],
   ],
+  plugins: [
+    '~plugins/filters.js'
+  ]
   // sassResources: [
   //   resolve(__dirname, "./assets/scss/base.scss")
   //   // '@/assets/scss/variables.scss'

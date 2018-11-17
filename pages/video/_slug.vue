@@ -1,0 +1,72 @@
+<template>
+    <div>
+        <video-player :video="video" :baseURL="baseURL"/>
+        <reflection :video="video"/>
+        <resources :video="video"/>
+        <survey :video="video"/>
+        <next-popup :video="video"/>
+    </div>
+</template>
+
+<script>
+import axios from 'axios'
+import VideoPlayer from '~/components/video/VideoPlayer.vue'
+import Reflection from '~/components/video/Reflection.vue'
+import Resources from '~/components/video/Resources.vue'
+import Survey from '~/components/video/Survey.vue'
+import NextPopup from '~/components/video/NextPopup.vue'
+import { setTimeout } from 'timers';
+import { resolve } from 'url';
+// import { Route } from "vue-router"
+const consola = require('consola')
+
+
+export default {
+    components: {
+        VideoPlayer,
+        Reflection,
+        Resources,
+        Survey,
+        NextPopup
+    },
+    head: {
+        title: "Video"
+    },
+    props: {
+        videoSlug : String,
+    },
+    async asyncData({
+        env,
+        params
+    }) {
+        const {
+            data
+        } = await axios.post(`${env.cockpit.apiUrl}/collections/get/Video?token=${env.cockpit.apiToken}`,
+            JSON.stringify({
+                filter: { slug: params.slug },
+                sort: {
+                    _created: -1
+                },
+                populate: 1
+            }), {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+        
+
+        // consola.info("Single Video for " + params.slug)
+        consola.log()
+        consola.info(data.entries[0])
+        return {
+            video: data.entries[0],
+            baseURL : 'http://vchdesign.ca/stuible/cockpit'
+        }
+    }
+}
+</script>
+
+
+<style>
+
+</style>

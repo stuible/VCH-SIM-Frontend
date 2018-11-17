@@ -1,9 +1,9 @@
 <template>
     <nav>
     <div class="container">
-      <a class="logo" href="#">
+      <nuxt-link class="logo" to="/">
         <img src="~/assets/image/logos/sim-light.svg" draggable="false" alt="Simulation Facilitation Pathways">
-      </a>
+      </nuxt-link>
       <input type="checkbox" id="menu" class="burger">
       <label for="menu" class="burger">☰</label>
       <ul class="menu">
