@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="homepage">
     <hero />
     <div class="video-grid container" id="modules">
         <div class="video-container" v-for="v in videos" :key="v.id">
@@ -38,7 +38,7 @@ export default {
                     'Content-Type': 'application/json'
                 }
             })
-        consola.info(data.entries)
+        // consola.info(data.entries)
         return {
             videos: data.entries
         }
