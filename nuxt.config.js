@@ -22,19 +22,21 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: ['SmoothScroll'],
     /*
     ** Run ESLint on save
     */
-    extend (config, { isDev, isClient }) {
+    extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         })
       }
     },
+
     // styleResources: {
     //   scss: './assets/scss/base.scss',
     //   // sass: ...,
@@ -45,6 +47,18 @@ module.exports = {
     //   }
     // }
   },
+  // module: { Doesn't do anything
+  //   rules: [
+  //     {
+  //       test: /\.(png|jpe?g|gif|svg|webp)$/,
+  //       loader: 'url-loader',
+  //       query: {
+  //         limit: 8000, // 1kB
+  //         name: 'img/[name].[hash:7].[ext]'
+  //       }
+  //     },
+  //   ]
+  // },
   env: {
     cockpit: {
       apiUrl: 'http://vchdesign.ca/stuible/cockpit/api',
@@ -59,7 +73,8 @@ module.exports = {
     ['nuxt-sass-resources-loader', '@/assets/scss/base.scss'],
   ],
   plugins: [
-    '~plugins/filters.js'
+    '~plugins/filters.js',
+    {src: '~/plugins/smooth-scroll.js', ssr: false}
   ]
   // sassResources: [
   //   resolve(__dirname, "./assets/scss/base.scss")
