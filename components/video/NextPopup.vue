@@ -1,7 +1,7 @@
 <template>
 <div class="next-video">
     <div class="header">
-        <div class="title">Next Video</div>
+        <div class="title">{{video.title}}</div>
         <div class="close fa fa-times"></div>
     </div>
     <a href="video.html">
@@ -21,6 +21,13 @@
 <script>
 import thumbnail from '~/assets/image/still.jpg'
 export default {
+    props: {
+        baseURL: String,
+        video: {
+            type: Object,
+            required: true
+        }
+    },
     data() {
         return { thumbnail }
     }

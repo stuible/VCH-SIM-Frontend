@@ -30,7 +30,7 @@ export default {
             JSON.stringify({
                 // filter: { published: true },
                 sort: {
-                    _created: -1
+                    order: 1
                 },
                 populate: 1
             }), {
