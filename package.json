@@ -16,7 +16,7 @@
     "axios": "^0.18.0",
     "consola": "^2.2.6",
     "normalize-scss": "^7.0.1",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.3.1",
     "nuxt-sass-resources-loader": "^2.0.5"
   },
   "devDependencies": {
@@ -25,7 +25,7 @@
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^4.0.0",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0"
   }
 }
