@@ -1,20 +1,20 @@
 <template>
-<div class="next-video">
-    <div class="header">
+<div class="next-video" v-bind:class="{ open: isOpen }" ref="popup">
+    <div class="header" @click="toggle()">
         <div class="title">{{video.title}}</div>
-        <div class="close fa fa-times"></div>
+        <div class="close"></div>
     </div>
-    <a href="video.html">
-            <div class="video" href="#">
-                <div class="thumbnail" :style="{ backgroundImage: `url(${thumbnail})` }"></div>
-                <div class="info">
-                    <div class="timestamp">4:20</div>
-                </div>
-                <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quasi, aut
-                    nulla,
-                    quo, adipisci sint eaque praesentium.</div>
+    <nuxt-link :to="'/video/' + video.slug">
+        <div class="video" href="#">
+            <div class="thumbnail" :style="{ backgroundImage: `url(${thumbnail})` }"></div>
+            <div class="info">
+                <div class="timestamp">4:20</div>
             </div>
-        </a>
+            <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quasi, aut
+                nulla,
+                quo, adipisci sint eaque praesentium.</div>
+        </div>
+    </nuxt-link>
 </div>
 </template>
 
@@ -29,7 +29,45 @@ export default {
         }
     },
     data() {
-        return { thumbnail }
+
+        var popupEl = ""
+        if (process.browser) {
+            popupEl = document.querySelector('.next-video')
+        }
+
+        return {
+            thumbnail,
+            isOpen: Boolean,
+        }
+    },
+    mounted() {
+        this.close();
+    },
+    computed: {
+
+    },
+    methods: {
+        open() {
+            console.log('opening');
+            this.$refs.popup.style.transform = "translate(0, 0px)";
+            this.isOpen = true;
+        },
+        close() {
+            console.log('closing');
+            let headerHeight = this.$refs.popup.querySelector('.header').offsetHeight;
+            this.$refs.popup.style.transform = "translate(0, " + (this.$refs.popup.offsetHeight - headerHeight) + "px)";
+            this.isOpen = false;
+        },
+        toggle() {
+            
+            console.log(this.open);
+
+            if (this.isOpen) {
+                this.close();
+            } else {
+                this.open();
+            }
+        }
     }
 }
 </script>
