@@ -2,7 +2,7 @@
 <div>
     <nuxt-link :to="'/video/' + video.slug">
         <div class="video">
-          <div class="thumbnail" style="background-image: url(~assets/image/still.jpg)"></div>
+          <div class="thumbnail" v-bind:style="{ backgroundImage: 'url(' + video.thumbnail + ')' }"></div>
           <div class="info">
             <div class="timestamp">{{video.length}}</div>
           </div>
