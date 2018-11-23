@@ -8,11 +8,9 @@
         <div class="video" href="#">
             <div class="thumbnail" :style="{ backgroundImage: `url(${thumbnail})` }"></div>
             <div class="info">
-                <div class="timestamp">4:20</div>
+                <div class="timestamp">{{video.length}}</div>
             </div>
-            <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quasi, aut
-                nulla,
-                quo, adipisci sint eaque praesentium.</div>
+            <div class="description">{{video.description}}</div>
         </div>
     </nuxt-link>
 </div>
@@ -29,11 +27,6 @@ export default {
         }
     },
     data() {
-
-        var popupEl = ""
-        if (process.browser) {
-            popupEl = document.querySelector('.next-video')
-        }
 
         return {
             thumbnail,
