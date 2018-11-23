@@ -14,7 +14,7 @@
         <svg class="feedback" id="i-msg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
             <path d="M2 4 L30 4 30 22 16 22 8 29 8 22 2 22 Z" />
         </svg>
-        <div class="feedback" ref="feedbackEl">feedback</div>
+        <div class="feedback" ref="feedbackEl">Select an asnwer to view the feedback.</div>
     </div>
 
 </section>
@@ -94,11 +94,17 @@ svg.feedback {
     grid-area: options;
 
     .option {
-        margin-bottom: 25px;
+        margin-bottom: 15px;
+        padding: 1em 1em 1em 0;
+        border-left: solid 1em #ffffff00;
+        margin-left: -1em;
+        border-radius: 1em;
         cursor: pointer;
+        transition: background-color 300ms linear, border-left 300ms linear;
 
         &:hover {
-            background-color: antiquewhite;
+            background-color: #f3f3f3;
+            border-left: solid 1em #f3f3f3;
         }
     }
 }
