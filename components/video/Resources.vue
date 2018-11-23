@@ -39,8 +39,8 @@ export default {
 
 }
 
-.resources {
-    // margin-top: 25px;
+div.resources {
+    margin-top: 25px;
 }
 
 .item {
