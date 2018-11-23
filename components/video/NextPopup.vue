@@ -45,10 +45,10 @@ export default {
                 return "translate(0, 0px)"
             }
             else {
-                // let headerHeight = this.$refs.popup.querySelector('.header').offsetHeight;
+                let headerHeight = this.$refs.popup.querySelector('.header').offsetHeight;
                 // this.$refs.popup.style.transform = 
                 // this.isOpen = false;
-                return "translate(0, " + (180) + "px)";
+                return "translate(0, " + (this.$refs.popup.offsetHeight - headerHeight) + "px)";
             }
         }
     },
