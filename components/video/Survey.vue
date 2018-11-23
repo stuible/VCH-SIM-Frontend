@@ -15,7 +15,7 @@
         </div>
 
         <div class="dots">
-            <span class="dot" @click="currentSlide(index)" v-for="(q, index) in questionsTrimmed" :key="q.id" ref="dotsEl"></span>
+            <span class="dot" @click="currentSlide(index)" v-for="(q, index) in questionsTrimmed" :key="q.id" ref="dotsEl" v-bind:class="{'active' :(index == slideIndex)}"></span>
         </div>
     </div>
 
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
     props: {
         questions: Object,
@@ -64,6 +65,7 @@ export default {
         // this.updateActiveStars();
     },
     computed: {
+        //The API returns two extra items that begin with '_' but are not questions.  This filters those out
         questionsTrimmed: function () {
             let trimmed = Object.entries(this.questions).filter(function (entry) {
                 console.log(entry[1])
@@ -100,8 +102,8 @@ export default {
                         stars[i].className += " hover";
                     }
                 });
-
-                star.addEventListener("click", function () {
+                let that = this
+                star.addEventListener("click", () => {
 
                     for (var i = 0; i < stars.length; i++) {
                         stars[i].classList.remove("selected");
@@ -110,9 +112,13 @@ export default {
                     for (var i = 0; i <= index; i++) {
                         stars[i].className += " selected";
                     }
-                    this.showSlides(this.slideIndex + 1)
+                    this.submitFeedback()
+                    // setTimeout(() => that.showSlides(that.slideIndex + 1) = false, 500)
+                    // setTimeout(() => { 
+                    //     this.showSlides(this.slideIndex)
+                    //  }, 1000)
                 });
-                
+
             })
 
             starContainer.addEventListener("mouseleave", function () {
@@ -151,6 +157,26 @@ export default {
             // this.$refs.questionsEl[this.slideIndex - 1].className += " active";
             // this.$refs.dotsEl[this.slideIndex - 1].className += " active";
             this.updateActiveStars();
+        },
+        async submitFeedback() {
+            const survey = await axios.post(`${process.env.cockpit.apiUrl}/forms/submit/Survey?token=${process.env.cockpit.apiToken}`,
+                JSON.stringify({
+                    form: { 
+                        video : this.video.title,
+                        'question' : this.questionsTrimmed[this.slideIndex][1],
+                        'rating' : '10'
+                        },
+                    // sort: {
+                    //   order: 1
+                    // }
+                    // populate: 1
+                }), {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }
+            );
+            console.log(survey);
         }
     }
 
@@ -212,7 +238,7 @@ section.survey {
         cursor: pointer;
         height: 10px;
         width: 10px;
-        margin: 0 2px;
+        margin: 0 3px;
         background-color: #bbb;
         border-radius: 50%;
         display: inline-block;
