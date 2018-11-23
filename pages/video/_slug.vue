@@ -4,7 +4,7 @@
         <reflection :video="video"/>
         <resources :video="video"/>
         <survey :video="video" :questions="surveyQuestions"/>
-        <next-popup :video="nextVideo"/>
+        <next-popup :video="nextVideo" v-if="nextVideo"/>
     </div>
 </template>
 
