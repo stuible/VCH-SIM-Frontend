@@ -47,7 +47,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .video-container {
     padding: 20px;
 }
