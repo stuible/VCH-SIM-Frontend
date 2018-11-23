@@ -3,7 +3,7 @@
         <video-player :video="video" :baseURL="baseURL"/>
         <reflection :video="video"/>
         <resources :video="video"/>
-        <survey :video="video"/>
+        <survey :video="video" :questions="surveyQuestions"/>
         <next-popup :video="nextVideo"/>
     </div>
 </template>
@@ -53,6 +53,23 @@ export default {
       }
     );
 
+    const  survey  = await axios.post(`${env.cockpit.apiUrl}/singletons/get/Survey?token=${env.cockpit.apiToken}`,
+      JSON.stringify({
+        // filter: { slug: params.slug },
+        // sort: {
+        //   order: 1
+        // }
+        // populate: 1
+      }),
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    );
+
+    consola.log(survey.data);
+
     consola.log('about to iterate videos');
 
     let video = data.entries.find(x => x.slug === params.slug)
@@ -70,8 +87,12 @@ export default {
     return {
       video: video,
       nextVideo: nextVideo,
+      surveyQuestions: survey.data,
       baseURL: "http://vchdesign.ca/stuible/cockpit"
     };
+  },
+  methods: {
+      
   }
 };
 </script>
