@@ -6,7 +6,7 @@
     </div>
     <nuxt-link :to="'/video/' + video.slug">
         <div class="video" href="#">
-            <div class="thumbnail" :style="{ backgroundImage: `url(${thumbnail})` }"></div>
+            <div class="thumbnail" :style="{ backgroundImage: `url(${video.thumbnail})` }"></div>
             <div class="info">
                 <div class="timestamp">{{video.length}}</div>
             </div>
