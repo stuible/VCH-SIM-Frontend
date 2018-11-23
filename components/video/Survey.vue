@@ -159,13 +159,20 @@ export default {
             this.updateActiveStars();
         },
         async submitFeedback() {
+            let stars = document.querySelectorAll(".question.active .fa-star");
+            let rating = 0;
+            stars.forEach(function (star, index) {
+                if(star.classList.contains('selected')) rating++
+            })
+            console.log(rating)
+
             const survey = await axios.post(`${process.env.cockpit.apiUrl}/forms/submit/Survey?token=${process.env.cockpit.apiToken}`,
                 JSON.stringify({
-                    form: { 
-                        video : this.video.title,
-                        'question' : this.questionsTrimmed[this.slideIndex][1],
-                        'rating' : '10'
-                        },
+                    form: {
+                        video: this.video.title,
+                        'question': this.questionsTrimmed[this.slideIndex][1],
+                        'rating': rating
+                    },
                     // sort: {
                     //   order: 1
                     // }
