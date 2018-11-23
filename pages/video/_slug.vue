@@ -17,7 +17,6 @@ import Survey from "~/components/video/Survey.vue";
 import NextPopup from "~/components/video/NextPopup.vue";
 import { setTimeout } from "timers";
 import { resolve } from "url";
-// import { Route } from "vue-router"
 const consola = require("consola");
 
 export default {
