@@ -1,10 +1,10 @@
 <template>
     <div>
-        <video-player :video="video" :baseURL="baseURL"/>
+        <video-player :video="video" :baseURL="baseURL" v-on:videoDone="showPopup()"/>
         <reflection :video="video"/>
         <resources :video="video"/>
         <survey :video="video" :questions="surveyQuestions"/>
-        <next-popup :video="nextVideo" v-if="nextVideo"/>
+        <next-popup :video="nextVideo" v-if="nextVideo" ref="popup"/>
     </div>
 </template>
 
@@ -91,7 +91,10 @@ export default {
     };
   },
   methods: {
-      
+      showPopup(){
+          console.log('show popup called')
+          this.$refs.popup.toggle()
+      }
   }
 };
 </script>

@@ -2,7 +2,7 @@
 <section class="video">
     <div class="container full">
         <div class="title">{{ video.title }}</div>
-        <video controls>
+        <video controls ref="video">
                 <source :src="baseURL + '/storage/uploads' + video.video.path" type="video/mp4">
                 Your browser does not support this video.
             </video>
@@ -36,6 +36,17 @@ export default {
             required: true
         }
     },
+    mounted(){
+        this.$refs.video.addEventListener('ended',this.ended,false);
+    },
+    methods: {
+        ended(){
+            console.log('video done')
+            this.$emit('videoDone', {
+                    id: this.video.title,
+                })
+        }
+    }
 }
 </script>
 

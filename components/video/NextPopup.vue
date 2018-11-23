@@ -1,5 +1,5 @@
 <template>
-<div class="next-video" v-bind:class="{ open: isOpen }" ref="popup">
+<div class="next-video" v-bind:class="{ open: show }" ref="popup" :style="{ transform: `${popupTransform}` }">
     <div class="header" @click="toggle()">
         <div class="title">{{video.title}}</div>
         <div class="close"></div>
@@ -30,32 +30,47 @@ export default {
 
         return {
             thumbnail,
-            isOpen: Boolean,
+            show: Boolean,
+            // isOpen: Boolean,
         }
     },
     mounted() {
         this.close();
     },
     computed: {
-
+        popupTransform(){
+            if(this.show){
+                // this.$refs.popup.style.transform = ;
+                // this.isOpen = true;
+                return "translate(0, 0px)"
+            }
+            else {
+                // let headerHeight = this.$refs.popup.querySelector('.header').offsetHeight;
+                // this.$refs.popup.style.transform = 
+                // this.isOpen = false;
+                return "translate(0, " + (180) + "px)";
+            }
+        }
     },
     methods: {
         open() {
             console.log('opening');
-            this.$refs.popup.style.transform = "translate(0, 0px)";
-            this.isOpen = true;
+            // this.$refs.popup.style.transform = "translate(0, 0px)";
+            // this.isOpen = true;
+            this.show = true;
         },
         close() {
             console.log('closing');
-            let headerHeight = this.$refs.popup.querySelector('.header').offsetHeight;
-            this.$refs.popup.style.transform = "translate(0, " + (this.$refs.popup.offsetHeight - headerHeight) + "px)";
-            this.isOpen = false;
+            // let headerHeight = this.$refs.popup.querySelector('.header').offsetHeight;
+            // this.$refs.popup.style.transform = "translate(0, " + (this.$refs.popup.offsetHeight - headerHeight) + "px)";
+            // this.isOpen = false;
+            this.show = false;
         },
         toggle() {
             
-            console.log(this.open);
+            console.log(this.show);
 
-            if (this.isOpen) {
+            if (this.show) {
                 this.close();
             } else {
                 this.open();
