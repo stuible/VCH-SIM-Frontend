@@ -40,7 +40,7 @@ export default {
 }
 
 .resources {
-    margin-top: 25px;
+    // margin-top: 25px;
 }
 
 .item {
