@@ -2,22 +2,19 @@
 <section class="reflection">
     <div class="container">
         <div class="title">Reflection</div>
-        <img class="question" src="" alt="">
-        <div class="question">Bobby is leading mock Code Blue sims throughout the hospital.
-            The coordinator of a challenging unit, where sim has never been done before,
-            requests for the mock code to be a “surprise,” be- cause “it’ll be more like the real thing.”
-            How should Bobby respond to the coordinator?</div>
+        <svg class="question" id="i-book" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M16 7 C16 7 9 1 2 6 L2 28 C9 23 16 28 16 28 16 28 23 23 30 28 L30 6 C23 1 16 7 16 7 Z M16 7 L16 28" />
+        </svg>
+        <div class="question">{{video.question}}</div>
         <div class="options">
-            <div class="option" data-feedback="First option, lorem ipsum dolor sit amet consectetur, adipisicing elit.">LUllam
-                rerum sed, alias vel officiis dolores tempora. Cupiditate eius totam magnam in,
-                minima tempora, perferendis a voluptate fugiat natus fugit ipsa</div>
-            <div class="option" data-feedback="Second option, lorem ipsum dolor sit amet consectetur, adipisicing elit.">LUllam
-                rerum sed, alias vel officiis dolores tempora. Cupiditate eius totam magnam in,
-                minima tempora, perferendis a voluptate fugiat natus fugit ipsa</div>
+            <div class="option" @click="showFeedback(video.feedback1)">{{video.answer1}}</div>
+            <div class="option" @click="showFeedback(video.feedback2)">{{video.answer2}}</div>
         </div>
         <div class="divider"></div>
-        <img class="feedback" src="" alt="">
-        <div class="feedback">lol</div>
+        <svg class="feedback" id="i-msg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M2 4 L30 4 30 22 16 22 8 29 8 22 2 22 Z" />
+        </svg>
+        <div class="feedback" ref="feedbackEl">feedback</div>
     </div>
 
 </section>
@@ -25,12 +22,21 @@
 
 <script>
 export default {
-
+    props: {
+        video: {
+            type: Object,
+            required: true
+        }
+    },
+    methods: {
+        showFeedback(feedback) {
+            this.$refs.feedbackEl.textContent = feedback
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-
 .container {
     display: grid;
     height: 100%;
@@ -60,11 +66,11 @@ export default {
     grid-area: title;
 }
 
-img.question {
+svg.question {
     grid-area: question-image;
-    // width: 60px;
+    width: 60px;
     height: 60px;
-    background-color: black;
+    // background-color: black;
 }
 
 div.question {
@@ -77,11 +83,11 @@ div.question {
     background-color: #cecece;
 }
 
-img.feedback {
+svg.feedback {
     grid-area: feedbackicon;
-    // width: 60px;
     height: 60px;
-    background-color: black;
+    width: 60px;
+    // background-color: black;
 }
 
 .options {
