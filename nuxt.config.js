@@ -63,9 +63,9 @@ module.exports = {
   // },
   env: {
     cockpit: {
-      apiUrl: 'http://vchdesign.ca/stuible/cockpit/api',
+      apiUrl: 'http://admin.simulation.vchlearn.ca/api',
       apiToken: 'ab9d712bf8f8be698edcdfc206c628',
-      baseURL: 'http://vchdesign.ca/stuible/cockpit'
+      baseURL: 'http://admin.simulation.vchlearn.ca'
     }
   },
   // css: [
