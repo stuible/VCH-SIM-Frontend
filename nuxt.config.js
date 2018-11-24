@@ -17,7 +17,7 @@ module.exports = {
     ]
   },
   router: {
-    base: '/yxdmon/',
+    base: '/',
   },
   /*
   ** Customize the progress bar color
