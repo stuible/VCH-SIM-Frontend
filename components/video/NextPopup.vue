@@ -1,7 +1,7 @@
 <template>
 <div class="next-video" v-bind:class="{ open: show }" ref="popup" :style="{ transform: `${popupTransform}` }">
     <div class="header" @click="toggle()">
-        <div class="title">{{video.title}}</div>
+        <div class="title">Next: {{video.title}}</div>
         <div class="close"></div>
     </div>
     <nuxt-link :to="'/video/' + video.slug">
