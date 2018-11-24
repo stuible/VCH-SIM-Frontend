@@ -16,6 +16,9 @@ module.exports = {
       crossorigin:"anonymous"}
     ]
   },
+  router: {
+    base: '/yxdmon/',
+  },
   /*
   ** Customize the progress bar color
   */
