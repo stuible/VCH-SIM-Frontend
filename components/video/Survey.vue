@@ -4,7 +4,7 @@
         <div class="questions">
             <div class="question" v-for="(q, index) in questionsTrimmed" :key="q.id" ref="questionsEl" v-bind:class="{'active' :(index == slideIndex)}">
                 <div class="title fade-in-slide">{{ q[1] }}</div>
-                <div class="stars">
+                <div class="stars fade-in-slide">
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star"></span>
@@ -30,15 +30,13 @@ export default {
         video: Object,
     },
     computed: {
-        stars() {
-            console.log(document.querySelectorAll(".question.active .fa-star"))
-            return document.querySelectorAll(".question.active .fa-star");
-        },
+
         isActive() {
             console.log(el)
             // return (el => this.isActiveButton(el))).length === 0
             return false
-        }
+        },
+
     },
     data() {
 
@@ -48,21 +46,26 @@ export default {
 
         return {
             slideIndex: 0,
-            // slides: this.$refs.questionsEl,
-            // dots: this.$refs.dotsEl,
-            // stars: null,
+            stars: null,
             starContainer: null
         }
     },
+    watch: {
+        // activeStars(){
+
+        // },
+        slideIndex() {
+            console.log('detected stars have changed: ' + this.slideIndex)
+            this.clearListeners();
+            this.starContainer = this.$refs.questionsEl[this.slideIndex];
+            this.stars = this.starContainer.querySelectorAll(".fa-star");
+            this.updateActiveStars();
+        }
+    },
     mounted() {
-        // this.slides = this.$refs.questionsEl;
-        // this.dots = document.querySelectorAll(".survey .dot");
-        // this.stars = document.querySelectorAll(".question.active .fa-star");
-        // this.starContainer = document.querySelector(".question.active .stars");
-        // console.log('slides:')
-        // console.log(this.slides);
-        this.showSlides(this.slideIndex);
-        // this.updateActiveStars();
+        this.stars = document.querySelectorAll(".question.active .fa-star");
+        this.starContainer = document.querySelector(".question.active .stars");
+        this.updateActiveStars();
     },
     computed: {
         //The API returns two extra items that begin with '_' but are not questions.  This filters those out
@@ -76,93 +79,91 @@ export default {
         }
     },
     methods: {
-        updateActiveStars() {
-            let stars = document.querySelectorAll(".question.active .fa-star");
-            let starContainer = document.querySelector(".question.active .stars");
-            stars.forEach(function (star, index) {
-                star.removeEventListener("mouseover", function () {
-
+        clearListeners() {
+            console.log('removing listeners')
+            if (this.stars != null) {
+                console.log('about to iterate through stars, there are ' + this.stars.length)
+                this.stars.forEach(function (star, index) {
+                    star.removeEventListener("mouseover", star.fn, false);
                 });
-            });
-            if (this.starContainer != null) {
-                this.starContainer.removeEventListener('click', function () {});
+                this.stars.forEach(function (star, index) {
+                    star.removeEventListener("click", star.fn, false);
+                });
             }
+            if (this.starContainer != null) {
+                this.starContainer.removeEventListener('click', this.starContainer.fn, false);
+            }
+        },
+        updateActiveStars() {
 
-            stars = document.querySelectorAll(".question.active .fa-star");
-            starContainer = document.querySelector(".question.active .stars");
+            // console.log(this.stars)
 
-            stars.forEach((star, index) => {
-                star.addEventListener("mouseover", function () {
+            console.log(this.stars)
 
-                    for (var i = 0; i < stars.length; i++) {
-                        stars[i].classList.remove("hover");
+            let that = this;
+            this.stars.forEach((star, index) => {
+                star.addEventListener("mouseover", star.fn=function fn() {
+
+                    for (var i = 0; i < that.stars.length; i++) {
+                        that.stars[i].classList.remove("hover");
                     }
 
                     for (var i = 0; i <= index; i++) {
-                        stars[i].className += " hover";
+                        that.stars[i].className += " hover";
                     }
-                });
-                let that = this
-                star.addEventListener("click", () => {
+                }, false);
 
-                    for (var i = 0; i < stars.length; i++) {
-                        stars[i].classList.remove("selected");
+                star.addEventListener("click", star.fn=function fn() {
+
+                    for (var i = 0; i < that.stars.length; i++) {
+                        that.stars[i].classList.remove("selected");
                     }
 
                     for (var i = 0; i <= index; i++) {
-                        stars[i].className += " selected";
+                        that.stars[i].className += " selected";
                     }
-                    this.submitFeedback()
-                    // setTimeout(() => that.showSlides(that.slideIndex + 1) = false, 500)
-                    // setTimeout(() => { 
-                    //     this.showSlides(this.slideIndex)
-                    //  }, 1000)
-                });
+                    that.submitFeedback()
+
+                }, false);
 
             })
 
-            starContainer.addEventListener("mouseleave", function () {
+            this.starContainer.addEventListener("mouseleave", this.starContainer.fn=function fn() {
+
                 console.log('leaving star container');
-                for (var i = 0; i < stars.length; i++) {
-                    stars[i].classList.remove("hover");
+                for (var i = 0; i < that.stars.length; i++) {
+                    that.stars[i].classList.remove("hover");
                 }
 
-            });
+            }, false);
         },
         plusSlides(n) {
             this.showSlides(this.slideIndex += n);
         },
         currentSlide(n) {
+            console.log("cliicked dot: " + n)
             this.showSlides(n);
         },
         showSlides(n) {
-            this.slideIndex = n;
-            var i;
-            console.log(this.slideIndex)
-            if (n > this.$refs.questionsEl.length) {
-                console.log('n > this.$refs.questionsEl.length')
+
+            console.log("about to display: " + parseInt(n))
+            if (parseInt(n) > this.$refs.questionsEl.length - 1) {
+                console.log(parseInt(n) + ' > ' + this.$refs.questionsEl.length - 1)
+                console.log("setting slide index to 0")
                 this.slideIndex = 0
-            }
-            if (n < 0) {
-                console.log('n < 0')
+            } else if (parseInt(n) < 0) {
+                console.log(n + ' < 0')
                 this.slideIndex = this.$refs.questionsEl.length - 1
+            } else {
+                console.log("it's a legit slide")
+                this.slideIndex = n;
             }
-            // for (i = 0; i < this.$refs.questionsEl.length; i++) {
-            //     // console.log('i = 0; i < this.$refs.questionsEl.length; i++')
-            //     this.$refs.questionsEl[i].classList.remove("active");
-            // }
-            // for (i = 0; i < this.$refs.dotsEl.length; i++) {
-            //     this.$refs.dotsEl[i].className = this.$refs.dotsEl[i].className.replace(" active", "");
-            // }
-            // this.$refs.questionsEl[this.slideIndex - 1].className += " active";
-            // this.$refs.dotsEl[this.slideIndex - 1].className += " active";
-            this.updateActiveStars();
         },
         async submitFeedback() {
             let stars = document.querySelectorAll(".question.active .fa-star");
             let rating = 0;
             stars.forEach(function (star, index) {
-                if(star.classList.contains('selected')) rating++
+                if (star.classList.contains('selected')) rating++
             })
             console.log(rating)
 
@@ -184,6 +185,8 @@ export default {
                 }
             );
             console.log(survey);
+            console.log(this.slideIndex)
+            this.showSlides(this.slideIndex + 1);
         }
     }
 
