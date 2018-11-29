@@ -59,7 +59,7 @@ export default {}
     height: 100%;
     position: absolute;
     opacity: 0;
-    transition: filter 1000ms linear, opacity 500ms linear;
+    transition: filter 1000ms linear, opacity 500ms linear 500ms;
 
     &[lazy=loaded] {
         opacity: 1;
