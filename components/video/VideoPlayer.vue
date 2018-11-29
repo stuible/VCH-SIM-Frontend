@@ -10,14 +10,14 @@
             <a class="extra" download :href="baseURL + '/storage/uploads' + video.audio.path">
                 <img src="~assets/image/icon/download-audio.svg" alt="">
                 <div class="info">
-                    <div class="name">Download Video Title</div>
+                    <div class="name">Download Audio</div>
                     <div class="size">{{ video.audio.size | prettyBytes }}</div>
                 </div>
             </a>
             <a class="extra" download :href="baseURL + '/storage/uploads' + video.transcript.path">
                 <img src="~assets/image/icon/pdf.svg" alt="">
                 <div class="info">
-                    <div class="name">PDF Transcript</div>
+                    <div class="name">Download Transcript</div>
                     <div class="size">{{ video.transcript.size | prettyBytes }}</div>
                 </div>
             </a>
@@ -36,15 +36,15 @@ export default {
             required: true
         }
     },
-    mounted(){
-        this.$refs.video.addEventListener('ended',this.ended,false);
+    mounted() {
+        this.$refs.video.addEventListener('ended', this.ended, false);
     },
     methods: {
-        ended(){
+        ended() {
             console.log('video done')
             this.$emit('videoDone', {
-                    id: this.video.title,
-                })
+                id: this.video.title,
+            })
         }
     }
 }
@@ -66,12 +66,21 @@ export default {
             "video video video video"
             "extras extras extras extras";
         grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
     @include breakpoint(tablet) {
         grid-template-areas: "title title title title"
             "video video video extras";
+        grid-template-columns: 1fr 1fr 1fr 1.75fr;
         grid-template-rows: auto 1fr;
+    }
+
+    @include breakpoint(desktop) {
+        grid-template-areas: "title title title title"
+            "video video video extras";
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
 }
@@ -113,11 +122,19 @@ video {
         img {
             display: inline-block;
             width: 2.25em;
+
+            @include breakpoint(tablet) {
+                width: 1.75em;
+            }
+            @include breakpoint(desktop) {
+                width: 2.25em;
+            }
         }
 
         .info {
             display: inline-block;
             margin-left: 1em;
+            max-width: 70%;
         }
 
     }
