@@ -1,6 +1,6 @@
-# nuxt
+# VCH SIMULATION
 
-> Nuxt frontend for VCH's SIM Site
+A frontend for VCH's Simulation Educational Site written in Nuxt.js
 
 ## Build Setup
 
