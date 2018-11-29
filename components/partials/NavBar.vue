@@ -19,7 +19,7 @@
             </ul>
           </div>
         </li>
-        <li><nuxt-link to="registration">Class Registration</nuxt-link></li>
+        <li><nuxt-link to="/registration">Class Registration</nuxt-link></li>
         <li>
             <div class="sub-menu-link">Support
             <ul class="sub-menu">
