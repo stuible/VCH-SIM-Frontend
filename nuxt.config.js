@@ -92,9 +92,9 @@ module.exports = {
   // },
   env: {
     cockpit: {
-      apiUrl: 'http://admin.simulation.vchlearn.ca/api',
+      apiUrl: 'https://admin.simulation.vchlearn.ca/api',
       apiToken: 'ab9d712bf8f8be698edcdfc206c628',
-      baseURL: 'http://admin.simulation.vchlearn.ca'
+      baseURL: 'https://admin.simulation.vchlearn.ca'
     }
   },
   // css: [
