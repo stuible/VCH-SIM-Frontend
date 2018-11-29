@@ -102,10 +102,10 @@ module.exports = {
   // ],
   modules: [
     ['nuxt-sass-resources-loader', '@/assets/scss/base.scss'],
-    ["nuxt-imagemin", {
-      jpegtran: true,
+    // ["nuxt-imagemin", {
+    //   jpegtran: true,
 
-    }]
+    // }]
   ],
   plugins: [
     '~plugins/filters.js',
