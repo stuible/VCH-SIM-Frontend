@@ -1,5 +1,7 @@
 <template>
 <div class="hero">
+    <div class="background" v-lazy:background-image="require('~/assets/image/hero.jpg')"></div>
+
     <div class="content">
         <img class="title" alt="Simulation" draggable="false" src="~/assets/image/logos/simulation-hero.svg" />
         <div class="subtitle">is a techique - not a technology - to replace or amplify real expriences with guided
@@ -24,32 +26,45 @@
 </template>
 
 <script>
-export default {};
+const heroImage = require('~/assets/image/hero.jpg')
+export default {}
 </script>
 
 <style lang="scss" scoped>
+@keyframes fadein {
+    from { 
+        opacity: 0; 
+        transform: translateY(-50px);
+        }
+    to   { 
+        opacity: 1; 
+        }
+}
+
 .hero {
-    background-color: rgb(236, 236, 236);
-    background: url('~assets/image/hero.jpg') no-repeat center center;
-    background-size: cover;
+    position: relative;
     height: calc(100vh - #{$navHeight});
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
-
+    background-color: rgb(24, 24, 24);
 }
 
-.overlay {
-    background-color: black;
-    position: absolute;
-    opacity: 0.5;
+.background {
+    background: no-repeat center center;
+    background-size: cover;
     width: 100%;
-    top: $navHeight;
-    height: calc(100% - #{$navHeight});
-}
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: filter 1000ms linear, opacity 500ms linear;
 
+    &[lazy=loaded] {
+        opacity: 1;
+    }
+}
 .content {
     color: white;
     z-index: 1;
@@ -79,6 +94,8 @@ export default {};
 .subtitle {
     font-size: 1.30em;
     margin-top: 0.5em;
+    opacity: 0;
+    animation: fadein 700ms ease-in 500ms forwards;
 }
 
 .scroll-indicator {
