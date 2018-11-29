@@ -19,11 +19,11 @@
             </ul>
           </div>
         </li>
-        <li><a href="registration.html">Class Registration</a></li>
+        <li><nuxt-link to="registration">Class Registration</nuxt-link></li>
         <li>
             <div class="sub-menu-link">Support
             <ul class="sub-menu">
-              <li>Course Objectives</li>
+              <!-- <li>Course Objectives</li> -->
               <li>SIM Dictionary</li>
               <li>Contact</li>
             </ul>
