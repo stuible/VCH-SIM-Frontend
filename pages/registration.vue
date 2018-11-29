@@ -1,6 +1,8 @@
 <template>
 <div>
-
+    <div class="container">
+        <h1>Class Registration</h1>
+    </div>
 </div>
 </template>
 
