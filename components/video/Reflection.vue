@@ -40,7 +40,7 @@ export default {
 .container {
     display: grid;
     height: 100%;
-    grid-template-columns: 30px 1fr;
+    grid-template-columns: 60px 1fr;
     grid-template-rows: auto auto;
     grid-gap: 25px 25px;
     grid-template-areas: "title title"
