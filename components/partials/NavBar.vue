@@ -8,7 +8,7 @@
       <label for="menu" class="burger">☰</label>
       <ul class="menu">
         <li>
-          <div class="sub-menu-link"><a href="#modules">Modules</a>
+          <div class="sub-menu-link"><nuxt-link to="/#modules">Modules</nuxt-link>
             <ul class="sub-menu">
               <li><a href="video.html">Video One</a></li>
               <li><a href="video.html">Video One</a></li>
@@ -171,6 +171,17 @@ input.burger {
     padding: 2em;
     transition: all 300ms linear;
 
+    //Top Level Menu Items
+    & > li > a,
+    & > li > div {
+      font-size: 2em;
+    }
+
+    //Second Level Menu Items
+     ul.sub-menu {
+       font-size: 0.5em;
+     }
+
     li > a,
     li > div,
     li > div > a {
@@ -178,7 +189,7 @@ input.burger {
       color: $primaryBody;
       font-weight: 500;
       letter-spacing: 0.02em;
-      padding: 0 14px;
+      // padding: 0 14px;
       display: block;
     }
   }
