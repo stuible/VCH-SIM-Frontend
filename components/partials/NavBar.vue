@@ -10,12 +10,9 @@
         <li>
           <div class="sub-menu-link"><nuxt-link to="/#modules">Modules</nuxt-link>
             <ul class="sub-menu">
-              <li><a href="video.html">Video One</a></li>
-              <li><a href="video.html">Video One</a></li>
-              <li><a href="video.html">Video One</a></li>
-              <li><a href="video.html">Video One</a></li>
-              <li><a href="video.html">Video One</a></li>
-              <li><a href="video.html">Video One</a></li>
+              <li v-for="v in $store.state.videos" :key="v.id">
+                <nuxt-link :to="'/video/' + v.slug">{{v.title}}</nuxt-link>
+              </li>
             </ul>
           </div>
         </li>
