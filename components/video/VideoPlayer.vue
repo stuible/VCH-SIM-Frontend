@@ -7,14 +7,14 @@
                 Your browser does not support this video.
             </video>
         <div class="extras">
-            <a class="extra" download :href="baseURL + '/storage/uploads' + video.audio.path">
+            <a class="extra" download :href="baseURL + '/storage/uploads' + video.audio.path" target="_blank">
                 <img src="~assets/image/icon/download-audio.svg" alt="">
                 <div class="info">
                     <div class="name">Download Audio</div>
                     <div class="size">{{ video.audio.size | prettyBytes }}</div>
                 </div>
             </a>
-            <a class="extra" download :href="baseURL + '/storage/uploads' + video.transcript.path">
+            <a class="extra" download :href="baseURL + '/storage/uploads' + video.transcript.path" target="_blank">
                 <img src="~assets/image/icon/pdf.svg" alt="">
                 <div class="info">
                     <div class="name">Download Transcript</div>
