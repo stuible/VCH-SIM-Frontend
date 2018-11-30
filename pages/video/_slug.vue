@@ -33,60 +33,22 @@ export default {
   props: {
     videoSlug: String
   },
-  async asyncData({ env, params }) {
-    const { data } = await axios.post(
-      `${env.cockpit.apiUrl}/collections/get/Video?token=${
-        env.cockpit.apiToken
-      }`,
-      JSON.stringify({
-        // filter: { slug: params.slug },
-        sort: {
-          order: 1
-        }
-        // populate: 1
-      }),
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    );
+  async asyncData({ env, params, store }) {
 
-    const  survey  = await axios.post(`${env.cockpit.apiUrl}/singletons/get/Survey?token=${env.cockpit.apiToken}`,
-      JSON.stringify({
-        // filter: { slug: params.slug },
-        // sort: {
-        //   order: 1
-        // }
-        // populate: 1
-      }),
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    );
-
-    consola.log(survey.data);
+    consola.log(store.state.survey.data);
 
     consola.log('about to iterate videos');
 
-    let video = data.entries.find(x => x.slug === params.slug)
-    let nextVideo = data.entries[parseInt(video.order)]
-
+    let video = store.state.videos.find(x => x.slug === params.slug)
+    let nextVideo = store.state.videos[parseInt(video.order)]
 
     consola.log(video);
     consola.log(nextVideo);
 
-    
-
-    // consola.info("Single Video for " + params.slug)
-    consola.log();
-    // consola.info(data.entries[0])
     return {
       video: video,
       nextVideo: nextVideo,
-      surveyQuestions: survey.data,
+      surveyQuestions: store.state.survey,
       baseURL: "http://vchdesign.ca/stuible/cockpit"
     };
   },

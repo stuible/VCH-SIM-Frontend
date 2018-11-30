@@ -1,7 +1,7 @@
 <template>
 <section class="video">
     <div class="container full">
-        <div class="title">{{ video.title }}</div>
+        <h1 class="title">{{ video.title }}</h1>
         <video controls ref="video">
                 <source :src="baseURL + '/storage/uploads' + video.video.path" type="video/mp4">
                 Your browser does not support this video.
@@ -87,9 +87,6 @@ export default {
 
 .title {
     grid-area: title;
-    text-transform: uppercase;
-    border-left: 5px solid $accentTeal;
-    padding-left: 20px;
 }
 
 video {

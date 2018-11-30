@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import VideoModule from '~/components/landing/VideoModule.vue'
 import Hero from '~/components/landing/Hero.vue'
 const consola = require('consola')
