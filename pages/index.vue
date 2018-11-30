@@ -20,29 +20,6 @@ export default {
         VideoModule,
         Hero
     },
-    // async asyncData({
-    //     env,
-    //     params
-    // }) {
-    //     const {
-    //         data
-    //     } = await axios.post(`${env.cockpit.apiUrl}/collections/get/Video?token=${env.cockpit.apiToken}`,
-    //         JSON.stringify({
-    //             // filter: { published: true },
-    //             sort: {
-    //                 order: 1
-    //             },
-    //             populate: 1
-    //         }), {
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             }
-    //         })
-    //     // consola.info(data.entries)
-    //     return {
-    //         videos: data.entries
-    //     }
-    // }
 }
 </script>
 
