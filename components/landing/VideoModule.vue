@@ -64,6 +64,8 @@ export default {
         border-left: 5px solid #fff;
         font-size: 0.9em;
         transition: opacity 300ms linear;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &:hover {
