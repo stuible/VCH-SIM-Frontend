@@ -3,7 +3,8 @@ import Vue from 'vue'
 Vue.filter('prettyBytes', function (num) {
     // jacked from: https://github.com/sindresorhus/pretty-bytes
     if (typeof num !== 'number' || isNaN(num)) {
-      throw new TypeError('Expected a number');
+      console.log('prettyBytes Error: Not a number')
+      return '';
     }
   
     var exponent;
