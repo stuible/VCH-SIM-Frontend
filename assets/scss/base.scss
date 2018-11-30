@@ -19,20 +19,8 @@
 @import "animation";
 
 // // Component Styles
-// @import "components/navbar";
-// @import "components/footer";
-
-// //UI Styles
-// @import "components/ui";
-
-// //Page Styles
-// @import "pages/landing/hero";
-// @import "pages/landing/videogrid";
-
-// @import "pages/video/video";
-// @import "pages/video/reflection";
-// @import "pages/video/resources";
-// @import "pages/video/survey";
-// @import "pages/video/next-video";
-
-// @import "pages/registration/registration";
+h1 {
+    text-transform: uppercase;
+    border-left: 5px solid $accentTeal;
+    padding-left: 20px;
+}
