@@ -128,7 +128,7 @@ export default {}
         border: 10px solid white;
         cursor: pointer;
         transition: transform 1s ease-in-out;
-        animation: pulse 1s infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        animation: pulse 1s infinite cubic-bezier(.57,.21,.69,1.25);
 
         &.one {
             left: $objectiveDotHorizontalPostion;
