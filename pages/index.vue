@@ -35,11 +35,11 @@ export default {
     margin-top: 50px;
     margin-bottom: 100px;
 
-    @include breakpoint(phablet) {
+    @include breakpoint(tablet) {
         grid-template-columns: 50% 50%;
     }
 
-    @include breakpoint(tablet) {
+    @include breakpoint(desktop) {
         grid-template-columns: 33% 33% 33%;
     }
 
