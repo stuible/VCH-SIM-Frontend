@@ -132,7 +132,7 @@ input.burger {
     .menu {
         li {
             display: inline-block;
-            cursor: pointer;
+            // cursor: pointer;
         }
 
         >li>a,
@@ -155,7 +155,7 @@ input.burger {
             position: absolute;
             display: none;
             background-color: #fff;
-            padding: 15px 20px;
+            padding: 10px 20px;
             color: #000;
             margin-left: -14px;
             border-radius: 0 0 0.5em 0.5em;
@@ -169,13 +169,21 @@ input.burger {
         }
 
         .sub-menu-link {
+          cursor: default;
             &:hover ul.sub-menu {
                 display: block;
+
+                li>a:hover {
+                  border-left: solid $accentTeal 3px;
+                  padding-left: 0.5em;
+                  margin-left: calc(-3px + -0.5em)
+                }
             }
 
             a {
                 text-decoration: none;
                 color: black;
+                display: block;
             }
         }
     }
