@@ -9,7 +9,7 @@
             <ul class="menu">
                 <li>
                     <div class="sub-menu-link">
-                        <nuxt-link to="/#modules">Modules</nuxt-link>
+                        <nuxt-link to="/#modules">Videos</nuxt-link>
                         <ul class="sub-menu">
                             <li v-for="v in $store.state.videos" :key="v.id">
                                 <nuxt-link :to="'/video/' + v.slug">{{v.title}}</nuxt-link>
@@ -23,7 +23,7 @@
                 <li>
                     <div class="sub-menu-link">Support
                         <ul class="sub-menu">
-                            <li>Course Objectives</li>
+                            <li><nuxt-link to="/objectives">Course Objectives</nuxt-link></li>
                             <li><a href="https://www.ssih.org/dictionary" target="_blank">SIM Dictionary</a></li>
                             <!-- <li>Contact</li> -->
                         </ul>
@@ -80,7 +80,7 @@ nav {
     height: $navHeight;
     background-color: $navColour;
     z-index: 2;
-    box-shadow: 0px 3px 2px -2px rgba(0, 0, 0, 0.26);
+    box-shadow: 0px 4px 5px -3px rgba(0, 0, 0, 0.15)
 }
 
 .logo {
@@ -159,7 +159,7 @@ input.burger {
             color: #000;
             margin-left: -14px;
             border-radius: 0 0 0.5em 0.5em;
-            box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.26);
+            box-shadow: 0px 4px 5px -3px rgba(0, 0, 0, 0.15);
 
             li {
                 display: block;
@@ -182,7 +182,7 @@ input.burger {
 
             a {
                 text-decoration: none;
-                color: black;
+                color: #404040;
                 display: block;
             }
         }
@@ -215,7 +215,7 @@ input.burger {
         background-color: #fff;
         padding: 2em;
         transition: all 300ms linear;
-        box-shadow: -3px 0px 2px -2px rgba(0, 0, 0, 0.26);
+        box-shadow: -4px 0px 5px -3px rgba(0, 0, 0, 0.15);
 
         //Top Level Menu Items
         &>li>a,
@@ -233,6 +233,9 @@ input.burger {
             font-weight: 500;
             list-style-type: none;
             //  text
+            a {
+              margin-bottom: 0.5em;
+            }
         }
 
         li>a,
