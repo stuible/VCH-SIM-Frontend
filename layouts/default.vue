@@ -10,8 +10,6 @@
 import NavBar from '~/components/partials/NavBar.vue'
 import Footer from '~/components/partials/Footer.vue'
 
-const consola = require('consola')
-
 export default {
     components: {
         NavBar,
@@ -26,7 +24,7 @@ export default {
         // const page = this.$nuxt.$children;
         // this.videos = page.videos;
         // consola.info(this.$nuxt.$children[1].$children)
-    }
+    },
 }
 </script>
 

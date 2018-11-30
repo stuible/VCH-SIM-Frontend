@@ -2,7 +2,7 @@
 <div class="homepage">
     <hero />
     <div class="video-grid container" id="modules">
-        <div class="video-container" v-for="v in videos" :key="v.id">
+        <div class="video-container" v-for="v in $store.state.videos" :key="v.id">
             <video-module :video="v" />
         </div>
     </div>
@@ -20,29 +20,29 @@ export default {
         VideoModule,
         Hero
     },
-    async asyncData({
-        env,
-        params
-    }) {
-        const {
-            data
-        } = await axios.post(`${env.cockpit.apiUrl}/collections/get/Video?token=${env.cockpit.apiToken}`,
-            JSON.stringify({
-                // filter: { published: true },
-                sort: {
-                    order: 1
-                },
-                populate: 1
-            }), {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-        // consola.info(data.entries)
-        return {
-            videos: data.entries
-        }
-    }
+    // async asyncData({
+    //     env,
+    //     params
+    // }) {
+    //     const {
+    //         data
+    //     } = await axios.post(`${env.cockpit.apiUrl}/collections/get/Video?token=${env.cockpit.apiToken}`,
+    //         JSON.stringify({
+    //             // filter: { published: true },
+    //             sort: {
+    //                 order: 1
+    //             },
+    //             populate: 1
+    //         }), {
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             }
+    //         })
+    //     // consola.info(data.entries)
+    //     return {
+    //         videos: data.entries
+    //     }
+    // }
 }
 </script>
 
