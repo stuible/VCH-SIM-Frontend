@@ -57,7 +57,13 @@ h5 {
     background-color: darkgray;
     text-decoration: none;
     color: white;
+    font-weight: 600;
     padding: 1em 2em;
     border-radius: 1em;
+    transition: background-color 100ms ease-in;
+
+    &:hover {
+        background-color: $accentTeal;
+    }
 }
 </style>
