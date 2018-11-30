@@ -23,9 +23,9 @@
         <li>
             <div class="sub-menu-link">Support
             <ul class="sub-menu">
-              <!-- <li>Course Objectives</li> -->
-              <li>SIM Dictionary</li>
-              <li>Contact</li>
+              <li>Course Objectives</li>
+              <li><a href="https://www.ssih.org/dictionary" target="_blank">SIM Dictionary</a></li>
+              <!-- <li>Contact</li> -->
             </ul>
           </div>
         </li>
