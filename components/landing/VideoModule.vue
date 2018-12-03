@@ -2,7 +2,7 @@
 <div>
     <nuxt-link :to="'/video/' + video.slug">
         <div class="video">
-          <div class="thumbnail" v-bind:style="{ backgroundImage: 'url(' + video.thumbnail + ')' }"></div>
+          <div class="thumbnail" v-bind:style="{ backgroundImage: 'url(' + apiBaseURL + '/' + video.thumbnail + ')' }"></div>
           <div class="info">
             <div class="timestamp">{{video.length}}</div>
           </div>
@@ -19,6 +19,9 @@ export default {
         video: {
             type: Object,
             required: true
+        },
+        apiBaseURL: {
+
         }
     }
 }

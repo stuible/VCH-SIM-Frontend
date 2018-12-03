@@ -3,7 +3,7 @@
     <hero />
     <div class="video-grid container" id="modules">
         <div class="video-container" v-for="v in $store.state.videos" :key="v.id">
-            <video-module :video="v" />
+            <video-module :video="v" :apiBaseURL="cockpit.baseURL"/>
         </div>
     </div>
 </div>
@@ -20,6 +20,11 @@ export default {
         VideoModule,
         Hero
     },
+    asyncData ({env}){
+        return {
+            cockpit: env.cockpit
+        }
+    }
 }
 </script>
 

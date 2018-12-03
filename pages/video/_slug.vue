@@ -49,7 +49,7 @@ export default {
       video: video,
       nextVideo: nextVideo,
       surveyQuestions: store.state.survey,
-      baseURL: "http://vchdesign.ca/stuible/cockpit"
+      baseURL: "https://admin.simulation.vchlearn.ca"
     };
   },
   methods: {
