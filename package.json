@@ -14,9 +14,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "consola": "^2.2.6",
+    "consola": "^2.3.0",
     "normalize-scss": "^7.0.1",
-    "nuxt": "^2.3.1",
+    "npm": "^6.4.1",
+    "nuxt": "^2.3.4",
     "nuxt-sass-resources-loader": "^2.0.5"
   },
   "devDependencies": {
