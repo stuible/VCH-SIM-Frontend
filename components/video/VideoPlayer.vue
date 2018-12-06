@@ -34,10 +34,15 @@ export default {
         video: {
             type: Object,
             required: true
-        }
+        },
+        autoplay: Boolean
     },
     mounted() {
         this.$refs.video.addEventListener('ended', this.ended, false);
+        if (this.autoplay) {
+            this.$refs.video.play()
+            this.removeParams('play');
+        }
     },
     methods: {
         ended() {
@@ -45,6 +50,13 @@ export default {
             this.$emit('videoDone', {
                 id: this.video.title,
             })
+        },
+        removeParams(sParam) {
+            var uri = window.location.toString();
+            if (uri.indexOf("?") > 0) {
+                var clean_uri = uri.substring(0, uri.indexOf("?"));
+                window.history.replaceState({}, document.title, clean_uri);
+            }
         }
     }
 }
@@ -123,6 +135,7 @@ video {
             @include breakpoint(tablet) {
                 width: 1.75em;
             }
+
             @include breakpoint(desktop) {
                 width: 2.25em;
             }

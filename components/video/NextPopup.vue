@@ -4,9 +4,9 @@
         <div class="title">Next: {{video.title}}</div>
         <div class="close"></div>
     </div>
-    <nuxt-link :to="'/video/' + video.slug">
+    <nuxt-link :to="{ path: '/video/' + video.slug, query: { play: true }}">
         <div class="video" href="#">
-            <div class="thumbnail" :style="{ backgroundImage: `url(${video.thumbnail})` }"></div>
+            <div class="thumbnail" :style="{ backgroundImage: `url(${baseURL + '/' +video.thumbnail})` }"></div>
             <div class="info">
                 <div class="timestamp">{{video.length}}</div>
             </div>

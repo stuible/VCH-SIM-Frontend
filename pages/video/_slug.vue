@@ -1,10 +1,10 @@
 <template>
     <div>
-        <video-player :video="video" :baseURL="baseURL" v-on:videoDone="showPopup()"/>
+        <video-player :video="video" :baseURL="baseURL" v-on:videoDone="showPopup()" :autoplay="this.$route.query.play === true"/>
         <reflection :video="video"/>
         <resources :video="video"/>
         <survey :video="video" :questions="surveyQuestions"/>
-        <next-popup :video="nextVideo" v-if="nextVideo" ref="popup"/>
+        <next-popup :video="nextVideo" v-if="nextVideo" ref="popup" :baseURL="baseURL"/>
     </div>
 </template>
 
@@ -57,6 +57,9 @@ export default {
           console.log('show popup called')
           this.$refs.popup.toggle()
       }
+  },
+  mounted(){
+    console.log(this.$route.query.play === true)
   }
 };
 </script>
