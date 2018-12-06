@@ -23,9 +23,9 @@
                 <li>
                     <div class="sub-menu-link">Support
                         <ul class="sub-menu">
-                            <li><nuxt-link to="/objectives">Course Objectives</nuxt-link></li>
+                            <li><nuxt-link to="/contact">Contact</nuxt-link></li>
+                            <!-- <li><nuxt-link to="/objectives">Course Objectives</nuxt-link></li> -->
                             <li><a href="https://www.ssih.org/dictionary" target="_blank">SIM Dictionary</a></li>
-                            <!-- <li>Contact</li> -->
                         </ul>
                     </div>
                 </li>
@@ -49,7 +49,7 @@ export default {
             let targetElement = evt.target;
 
             do {
-               console.log(clickedElement.tagName.toLowerCase())
+            //    console.log(clickedElement.tagName.toLowerCase())
                 if (targetElement == menuEl) {
                     if(clickedElement.tagName.toLowerCase() === "a" && clickedElement !== undefined){
                       console.log('is a link')
