@@ -43,4 +43,7 @@ export default {
 .title {
     margin-bottom: 2em;
 }
+section {
+  background-color: #FBFBFB;
+}
 </style>
