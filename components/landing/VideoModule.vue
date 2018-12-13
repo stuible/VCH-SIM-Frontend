@@ -33,7 +33,7 @@ export default {
 
     .title {
         margin-top: 15px;
-        color: $fontColour;
+        color: $primaryBody;
         font-weight: 700;
     }
 

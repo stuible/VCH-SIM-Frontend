@@ -2,6 +2,11 @@ body {
     margin-top: $navHeight;
     font-family: $fontBody;
     font-size: 14px;
+    color: $primaryBody;
+}
+
+.title {
+    color: $primaryBody;
 }
 
 .container {
