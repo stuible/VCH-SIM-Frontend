@@ -34,6 +34,7 @@ export default {
     .title {
         margin-top: 15px;
         color: $fontColour;
+        font-weight: 700;
     }
 
 
