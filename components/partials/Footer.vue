@@ -6,6 +6,10 @@
             <img src="~assets/image/logos/vch.svg" alt="">
             <img src="~assets/image/logos/interiorhealth.svg" alt="">
             <img src="~assets/image/logos/bcemn.svg" alt="">
+            <img src="~assets/image/logos/island.svg" alt="" style="width: 50%">
+            <img src="~assets/image/logos/providence.svg" alt="" style="width: 75%">
+            <img src="~assets/image/logos/northern.svg" alt="" style="width: 65%">
+            <img src="~assets/image/logos/ubc.svg" alt="">
       </div>
             <div class="info">© 2018 . VCH | Powered by Clinical Education</div>
         </div>
@@ -25,7 +29,7 @@ footer {
 }
 
 .logos {
-    padding: 3em 3em 5em 3em;
+    padding: 5em 3em;
     // padding-top: 3em;
     // padding-bottom: 5em;
     display: grid;
@@ -61,7 +65,7 @@ footer {
 }
 
 .info {
-    padding: 50px 0px;
+    padding-bottom: 50px;
     text-align: center;
     color: $footerText;
 }
