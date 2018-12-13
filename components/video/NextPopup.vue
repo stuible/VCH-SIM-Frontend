@@ -168,7 +168,7 @@ $videoPopupPadding: 15px;
         }
 
         .thumbnail {
-            filter: blur(5px);
+            filter: blur(5px) brightness(80%);
         }
     }
 
