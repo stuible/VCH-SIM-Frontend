@@ -28,32 +28,6 @@ module.exports = {
   },
   router: {
     base: '/',
-    // scrollBehavior: async (to, from, savedPosition) => {
-    //   if (savedPosition) {
-    //     return savedPosition
-    //   }
-
-    //   const findEl = async (hash, x) => {
-    //     return document.querySelector(hash) ||
-    //       new Promise((resolve, reject) => {
-    //         if (x > 50) {
-    //           return resolve()
-    //         }
-    //         setTimeout(() => { resolve(findEl(hash, ++x || 1)) }, 100)
-    //       })
-    //   }
-
-    //   if (to.hash) {
-    //     let el = await findEl(to.hash)
-    //     if ('scrollBehavior' in document.documentElement.style) {
-    //       return window.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
-    //     } else {
-    //       return window.scrollTo(0, el.offsetTop)
-    //     }
-    //   }
-
-    //   return { x: 0, y: 0 }
-    // }
   },
   /*
   ** Customize the progress bar color
@@ -78,28 +52,7 @@ module.exports = {
       }
     },
 
-    // styleResources: {
-    //   scss: './assets/scss/base.scss',
-    //   // sass: ...,
-    //   // scss: ...
-    //   options: {
-    //     // See https://github.com/yenshih/style-resources-loader#options
-    //     // Except `patterns` property
-    //   }
-    // }
   },
-  // module: { Doesn't do anything
-  //   rules: [
-  //     {
-  //       test: /\.(png|jpe?g|gif|svg|webp)$/,
-  //       loader: 'url-loader',
-  //       query: {
-  //         limit: 8000, // 1kB
-  //         name: 'img/[name].[hash:7].[ext]'
-  //       }
-  //     },
-  //   ]
-  // },
   env: {
     cockpit: {
       apiUrl: 'https://admin.simulation.vchlearn.ca/api',
@@ -114,6 +67,11 @@ module.exports = {
     ['nuxt-sass-resources-loader', '@/assets/scss/base.scss'],
     // ["nuxt-imagemin", {
     //   jpegtran: true,
+    //   svgo: {
+    //     minifyStyles: true,
+    //     cleanupIDs: true,
+    //     mergePaths: true,
+    //   }
 
     // }]
   ],
