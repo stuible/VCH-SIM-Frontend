@@ -2,6 +2,8 @@
 
 <img src="assets/image/logos/sim-light.svg" alt="VCH Simulation" width="300"/>
 
+<br/>
+<br/>
 The frontend for VCH's Simulation Educational Site written in Nuxt.js
 </div>
 
