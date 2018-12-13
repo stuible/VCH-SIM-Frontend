@@ -5,6 +5,7 @@
 <br/>
 <br/>
 The frontend for VCH's Simulation Educational Site written in Nuxt.js
+<br/>
 <a href="https://simulation.vchlearn.ca/">https://simulation.vchlearn.ca/</a>
 </div>
 
