@@ -105,7 +105,7 @@ svg.feedback {
         border-radius: 1em;
         cursor: pointer;
         border: solid 2px #EDEDED;
-        color: #b9b9b9;
+        color: #7a7a7a;
         transition: background-color 300ms linear, border-left 300ms linear;
 
         &:hover {
