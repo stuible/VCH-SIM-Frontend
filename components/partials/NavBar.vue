@@ -23,7 +23,7 @@
                 <li>
                     <div class="sub-menu-link">Support
                         <ul class="sub-menu">
-                            <li><nuxt-link to="/contact">Contact</nuxt-link></li>
+                            <!-- <li><nuxt-link to="/contact">Contact</nuxt-link></li> -->
                             <!-- <li><nuxt-link to="/objectives">Course Objectives</nuxt-link></li> -->
                             <li><a href="https://www.ssih.org/dictionary" target="_blank">SIM Dictionary</a></li>
                         </ul>
