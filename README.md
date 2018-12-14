@@ -81,5 +81,24 @@ $ pm2 restart all
 
 ```
 
+
+## How I setup nodeJS on an apache server
+It's hacky but it works: Using .htacess to create a reverse proxy to my node server (running on port 3000)
+
+If this has to be done in the future add this to your .htaccess file:
+``` apache
+RewriteEngine On 
+# Enforce HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Reverse Proxy to port 3000
+RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L] 
+RewriteRule ^$ http://127.0.0.1:3000/ [P,L] 
+DirectoryIndex disabled
+RewriteEngine On
+
+```
+
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
 
