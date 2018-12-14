@@ -40,7 +40,6 @@ export default {
     },
     methods: {
         getThumbnail() {
-            console.log(this.video._id in this.$store.state.thumbnails)
             if (!(this.video._id in this.$store.state.thumbnails)) {
                 console.log("don't have the thumbnails, grabbing via API")
                 axios.post(`${process.env.cockpit.apiUrl}/cockpit/image?token=${process.env.cockpit.apiToken}`,
@@ -107,6 +106,8 @@ export default {
     .description {
         padding: 0 10px;
         position: absolute;
+        font-weight: 600;
+        letter-spacing: 0.25px;
         top: 15px;
         margin: 0 15px 0 15px;
         opacity: 0;
