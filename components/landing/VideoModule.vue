@@ -2,18 +2,19 @@
 <div>
     <nuxt-link :to="'/video/' + video.slug">
         <div class="video">
-          <div class="thumbnail" v-bind:style="{ backgroundImage: 'url(' + apiBaseURL + '/' + video.thumbnail + ')' }"></div>
-          <div class="info">
-            <div class="timestamp">{{video.length}}</div>
-          </div>
-          <div class="description">{{video.description}}</div>
+            <div class="thumbnail" v-bind:style="{ backgroundImage: 'url(' + thumbnail + ')' }"></div>
+            <div class="info">
+                <div class="timestamp">{{video.length}}</div>
+            </div>
+            <div class="description">{{video.description}}</div>
         </div>
-      </nuxt-link>
+    </nuxt-link>
     <div class="title">{{video.title}}</div>
 </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     props: {
         video: {
@@ -23,20 +24,64 @@ export default {
         apiBaseURL: {
 
         }
+    },
+    data() {
+        return {
+            thumbnail: ''
+        }
+    },
+    computed: {
+        // thumbnailURL(){
+        //     return this.$store.getters.getThumbnailById(this.video._id);
+        // }
+    },
+    created() {
+        this.getThumbnail()
+    },
+    methods: {
+        getThumbnail() {
+            console.log(this.video._id in this.$store.state.thumbnails)
+            if (!(this.video._id in this.$store.state.thumbnails)) {
+                console.log("don't have the thumbnails, grabbing via API")
+                axios.post(`${process.env.cockpit.apiUrl}/cockpit/image?token=${process.env.cockpit.apiToken}`,
+                    JSON.stringify({
+                        src: this.video.thumbnail,
+                        w: 500,
+                        options: {
+                            "mode": "resize",
+                            "quality": 80
+                        },
+                    }), {
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }
+                ).then(response => {
+                    this.$store.commit('addThumbnail', {
+                        thumbnail: response.data,
+                        id: this.video._id
+                    })
+                    this.thumbnail = response.data
+                }).catch(error => {
+                    console.log(error)
+                })
+            }
+            else {
+                console.log("We DO have the thumbnails, grabbing via Store")
+                this.thumbnail = this.$store.getters.getThumbnailById(this.video._id)
+            }
+
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-
-
-
-    .title {
-        margin-top: 15px;
-        color: $primaryBody;
-        font-weight: 700;
-    }
-
+.title {
+    margin-top: 15px;
+    color: $primaryBody;
+    font-weight: 700;
+}
 
 .video {
     background-color: rgb(223, 223, 223);

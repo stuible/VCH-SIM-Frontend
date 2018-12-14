@@ -3,24 +3,53 @@
     <hero />
     <div class="video-grid container" id="modules">
         <div class="video-container" v-for="v in $store.state.videos" :key="v.id">
-            <video-module :video="v" :apiBaseURL="cockpit.baseURL"/>
+            <video-module :video="v" :apiBaseURL="cockpit.baseURL" />
         </div>
     </div>
 </div>
 </template>
 
 <script>
-// import axios from 'axios'
 import VideoModule from '~/components/landing/VideoModule.vue'
 import Hero from '~/components/landing/Hero.vue'
-const consola = require('consola')
+// const consola = require('consola')
+// import axios from 'axios'
 
 export default {
     components: {
         VideoModule,
         Hero
     },
+    async data(){
+        
+
+        return {
+            // 'thumbnails': thumbnails
+        }
+    },
     asyncData ({env}){
+        // let thumbnails = [];
+        // for (let video in this.$store.state.videos) {
+        
+        //   const thumbnail = await axios.post(`${process.env.cockpit.apiUrl}/cockpit/image?token=${process.env.cockpit.apiToken}`,
+        //     JSON.stringify({
+        //       src: this.$store.state.videos[video].thumbnail,
+        //       w:500,
+        //       options: {
+        //         "mode":"resize",
+        //         "quality":80
+        //       },
+        //     }),
+        //     {
+        //       headers: {
+        //         "Content-Type": "application/json"
+        //       }
+        //     }
+        //   )
+        //   console.log(thumbnail.data)
+        //   thumbnails.push(thumbnail.data)
+        // }
+
         return {
             cockpit: env.cockpit
         }

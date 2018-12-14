@@ -5,7 +5,8 @@ const videoStore = () => {
   return new Vuex.Store({
     state: () => ({
       videos: undefined,
-      survey: undefined
+      survey: undefined,
+      thumbnails: {}
 
     }),
     mutations: {
@@ -14,16 +15,21 @@ const videoStore = () => {
       },
       setSurvey(state, survey) {
         state.survey = survey;
+      },
+      addThumbnail(state, payload){
+        state.thumbnails[payload.id] = payload.thumbnail
+        console.log(payload.id + 'has this: ' + payload.thumbnail)
+        console.log(state.thumbnails)
       }
     },
     getters: {
-      // videos(state) {
-      //   return state.videos
-      // }
+      getThumbnailById: (state) => (id) => {
+        return state.thumbnails[id]
+      }
     },
     actions: {
       async nuxtServerInit({ commit }, { app }) {
-        const  {data}  = await axios.post(`${process.env.cockpit.apiUrl}/collections/get/Video?token=${process.env.cockpit.apiToken}`,
+        const { data } = await axios.post(`${process.env.cockpit.apiUrl}/collections/get/Video?token=${process.env.cockpit.apiToken}`,
           JSON.stringify({
             // filter: { published: true },
             sort: {
@@ -36,23 +42,24 @@ const videoStore = () => {
             }
           })
         // console.log(data)
+      
         commit('setVideos', data.entries)
 
-        const  survey  = await axios.post(`${process.env.cockpit.apiUrl}/singletons/get/Survey?token=${process.env.cockpit.apiToken}`,
-        JSON.stringify({
-          // filter: { slug: params.slug },
-          // sort: {
-          //   order: 1
-          // }
-          // populate: 1
-        }),
-        {
-          headers: {
-            "Content-Type": "application/json"
+        const survey = await axios.post(`${process.env.cockpit.apiUrl}/singletons/get/Survey?token=${process.env.cockpit.apiToken}`,
+          JSON.stringify({
+            // filter: { slug: params.slug },
+            // sort: {
+            //   order: 1
+            // }
+            // populate: 1
+          }),
+          {
+            headers: {
+              "Content-Type": "application/json"
+            }
           }
-        }
-      );
-        console.log(survey)
+        );
+        // console.log(survey)
         commit('setSurvey', survey.data)
 
       }
