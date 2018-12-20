@@ -106,13 +106,13 @@ export default {
     .description {
         padding: 0 10px;
         position: absolute;
-        font-weight: 600;
+        font-weight: 300;
         letter-spacing: 0.25px;
         top: 15px;
         margin: 0 15px 0 15px;
         opacity: 0;
         border-left: 5px solid #fff;
-        font-size: 0.9em;
+        font-size: 1em;
         transition: opacity 300ms linear;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -125,7 +125,7 @@ export default {
         }
 
         .thumbnail {
-            filter: blur(5px) brightness(80%);
+            filter: blur(5px) brightness(70%);
         }
     }
 
