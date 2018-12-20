@@ -29,6 +29,9 @@ module.exports = {
   router: {
     base: '/',
   },
+  css : [
+    // '~/assets/scss/base.scss'
+  ],
   /*
   ** Customize the progress bar color
   */
@@ -38,6 +41,10 @@ module.exports = {
   */
   build: {
     vendor: ['SmoothScroll'],
+    styleResources: {
+      scss: ['./assets/scss/variables.scss', './assets/scss/breakpoints.scss']
+      // scss: 
+    },
     /*
     ** Run ESLint on save
     */
@@ -64,7 +71,8 @@ module.exports = {
   //   // '@/assets/scss/base.scss'
   // ],
   modules: [
-    ['nuxt-sass-resources-loader', '@/assets/scss/base.scss'],
+    // ['nuxt-sass-resources-loader', '@/assets/scss/variables.scss'],
+    '@nuxtjs/style-resources'
     // ["nuxt-imagemin", {
     //   jpegtran: true,
     //   svgo: {
