@@ -2,13 +2,15 @@
 <footer>
     <div class="container">
         <div class="logos">
-            <img src="~assets/image/logos/fraserhealth.svg" alt="">
+            <img src="~assets/image/logos/clined.svg" alt="">
             <img src="~assets/image/logos/vch.svg" alt="" style="width: 90%">
+            <img src="~assets/image/logos/fraserhealth.svg" alt="">
             <img src="~assets/image/logos/interiorhealth.svg" alt="">
             <img src="~assets/image/logos/bcemn.svg" alt="">
             <img src="~assets/image/logos/island.svg" alt="" style="width: 50%">
             <img src="~assets/image/logos/providence.svg" alt="" style="width: 75%">
             <img src="~assets/image/logos/northern.svg" alt="" style="width: 65%">
+            <img src="~assets/image/logos/phsa.svg" alt="" style="width: 80%">
             <img src="~assets/image/logos/ubc.svg" alt="">
       </div>
             <div class="info">© {{new Date().getFullYear()}} VCH | Powered by Clinical Education</div>
@@ -37,6 +39,7 @@ footer {
     grid-template-rows: 1fr 1fr 1fr 1fr;
     justify-content: space-evenly;
     align-items: stretch;
+    // justify-items: center;
     grid-gap: 75px 75px;
     grid-template-areas: "."
         "."
@@ -51,9 +54,21 @@ footer {
     }
 
     @include breakpoint(tablet) {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: ". . .";
+    }
+
+    @include breakpoint(desktop) {
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: ". . . .";
+    }
+
+    @include breakpoint(desktophd) {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: ". . . . .";
     }
 
     img {
