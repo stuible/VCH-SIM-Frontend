@@ -249,7 +249,7 @@ section.survey {
         height: 10px;
         width: 10px;
         margin: 0 3px;
-        background-color: #bbb;
+        background-color: #cfcfcf;
         border-radius: 50%;
         display: inline-block;
         transition: background-color 0.6s ease;
