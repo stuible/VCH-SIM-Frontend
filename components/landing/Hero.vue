@@ -21,7 +21,7 @@
     <div class="objective dot four"></div>
     <div class="objective box four">Describe the basic elements and stages of a simulation educational intervention</div>
 
-    <a href="#modules" class="scroll-indicator"></a>
+    <a href="#modules" class="scroll-indicator" v-smooth-scroll="{ duration: 500, offset: -75, container: '' }"></a>
 </div>
 </template>
 
@@ -117,6 +117,11 @@ export default {}
         display: block;
     }
 
+    //Also hide the objectives if the window isn't tall enough to display them
+    @media screen and (max-height: 650px) {
+        display: none;
+    }
+
     $objectiveDotHorizontalPostion: 20%;
     $objectiveDotVerticlePostion: 20%;
 
@@ -144,13 +149,15 @@ export default {}
 
         &.three {
             left: $objectiveDotHorizontalPostion;
-            top: calc(#{$objectiveDotVerticlePostion} + #{$navHeight});
+            top: calc(#{$objectiveDotVerticlePostion});
+            // top: calc(#{$objectiveDotVerticlePostion} + #{$navHeight});
             animation-delay: 400ms;
         }
 
         &.four {
             right: $objectiveDotHorizontalPostion;
-            top: calc(#{$objectiveDotVerticlePostion} + #{$navHeight});
+            top: calc(#{$objectiveDotVerticlePostion});
+            // top: calc(#{$objectiveDotVerticlePostion} + #{$navHeight});
             animation-delay: 600ms;
         }
 
@@ -196,13 +203,15 @@ export default {}
 
         &.three {
             left: calc(#{$objectiveDotHorizontalPostion} + #{$objectiveBoxHorizontalOffest});
-            top: calc(#{$objectiveDotVerticlePostion} + #{$navHeight + $objectiveBoxVerticleOffest});
+            // top: calc(#{$objectiveDotVerticlePostion} + #{$navHeight + $objectiveBoxVerticleOffest});
+            top: calc(#{$objectiveDotVerticlePostion} + #{$objectiveBoxVerticleOffest});
             border-left-width: 7px;
         }
 
         &.four {
             right: calc(#{$objectiveDotHorizontalPostion} + #{$objectiveBoxHorizontalOffest});
-            top: calc(#{$objectiveDotVerticlePostion} + #{$navHeight + $objectiveBoxVerticleOffest});
+            // top: calc(#{$objectiveDotVerticlePostion} + #{$navHeight + $objectiveBoxVerticleOffest});
+            top: calc(#{$objectiveDotVerticlePostion} + #{$objectiveBoxVerticleOffest});
             border-right-width: 7px;
         }
     }

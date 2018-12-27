@@ -18,7 +18,8 @@
     "consola": "^2.2.6",
     "normalize-scss": "^7.0.1",
     "nuxt": "^2.3.1",
-    "nuxt-sass-resources-loader": "^2.0.5"
+    "nuxt-sass-resources-loader": "^2.0.5",
+    "vue2-smooth-scroll": "^1.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
