@@ -42,7 +42,7 @@ module.exports = {
   build: {
     vendor: ['SmoothScroll'],
     styleResources: {
-      scss: ['./assets/scss/variables.scss', './assets/scss/breakpoints.scss']
+      scss: ['./assets/scss/variables.scss', './assets/scss/breakpoints.scss', './assets/scss/animation.scss']
       // scss: 
     },
     /*
