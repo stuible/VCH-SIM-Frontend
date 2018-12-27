@@ -3,7 +3,7 @@
     <div class="container">
         <div class="logos">
             <img src="~assets/image/logos/fraserhealth.svg" alt="">
-            <img src="~assets/image/logos/vch.svg" alt="">
+            <img src="~assets/image/logos/vch.svg" alt="" style="width: 90%">
             <img src="~assets/image/logos/interiorhealth.svg" alt="">
             <img src="~assets/image/logos/bcemn.svg" alt="">
             <img src="~assets/image/logos/island.svg" alt="" style="width: 50%">
@@ -11,7 +11,7 @@
             <img src="~assets/image/logos/northern.svg" alt="" style="width: 65%">
             <img src="~assets/image/logos/ubc.svg" alt="">
       </div>
-            <div class="info">© 2018 . VCH | Powered by Clinical Education</div>
+            <div class="info">© {{new Date().getFullYear()}} VCH | Powered by Clinical Education</div>
         </div>
 </footer>
 </template>
