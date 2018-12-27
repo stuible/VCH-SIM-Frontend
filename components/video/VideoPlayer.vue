@@ -2,7 +2,7 @@
 <section class="video">
     <div class="container full">
         <h1 class="title">{{ video.title }}</h1>
-        <video controls ref="video">
+        <video controls ref="video" :poster="baseURL + '/' + video.thumbnail">
                 <source :src="baseURL + '/storage/uploads' + video.video.path" type="video/mp4">
                 Your browser does not support this video.
             </video>
