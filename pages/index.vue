@@ -46,7 +46,8 @@ export default {
     margin-top: 50px;
     margin-bottom: 100px;
 
-    @include breakpoint(tablet) {
+
+    @include breakpoint(phablet) {
         grid-template-columns: 50% 50%;
     }
 
@@ -54,9 +55,9 @@ export default {
         grid-template-columns: 33% 33% 33%;
     }
 
-    @include breakpoint(desktophd) {
-        grid-template-columns: 25% 25% 25% 25%;
-    }
+    // @include breakpoint(desktophd) {
+    //     grid-template-columns: 25% 25% 25% 25%;
+    // }
 
     // If IE 11, use flexbox instead of CSS Grid
     @media all and (-ms-high-contrast: none),
