@@ -195,7 +195,7 @@ export default {
 
 <style lang="scss" scoped>
 section.survey {
-    padding-bottom: 25px;
+    padding-bottom: 50px;
 }
 
 .container {
