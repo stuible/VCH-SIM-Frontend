@@ -21,7 +21,15 @@
     <div class="objective dot four"></div>
     <div class="objective box four">Describe the basic elements and stages of a simulation educational intervention</div>
 
-    <a href="#modules" class="scroll-indicator" v-smooth-scroll="{ duration: 500, offset: -75, container: '' }"></a>
+    <a href="#modules" class="scroll-indicator" v-smooth-scroll="{ duration: 500, offset: -75, container: '' }">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.5 47.5">
+            <g id="scroll_icon">
+                <circle cx="23.75" cy="23.75" r="21.75" class="cls-1"/>
+                <polyline points="34.87 20.12 23.75 31.24 12.63 20.12" class="cls-1 arrow"/>
+            </g>
+    </svg>
+
+    </a>
 </div>
 </template>
 
@@ -32,13 +40,14 @@ export default {}
 
 <style lang="scss" scoped>
 @keyframes fadein {
-    from { 
-        opacity: 0; 
+    from {
+        opacity: 0;
         transform: translateY(-25px);
-        }
-    to   { 
-        opacity: 1; 
-        }
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .hero {
@@ -65,6 +74,7 @@ export default {}
         opacity: 1;
     }
 }
+
 .content {
     color: white;
     z-index: 1;
@@ -98,9 +108,30 @@ export default {}
     animation: fadein 700ms ease-in 500ms forwards;
 }
 
+@keyframes arrowdance {
+    0% {
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        transform: translateY(1px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(-5px);
+        opacity: 0;
+    }
+}
+
 .scroll-indicator {
-    background: url("~assets/image/icon/chevron.svg") no-repeat;
-    background-size: contain;
+    // background: url("~assets/image/icon/chevron.svg") no-repeat;
+    // background-size: contain;
     height: 50px;
     width: 50px;
     margin: 0 auto;
@@ -108,6 +139,17 @@ export default {}
     right: 0;
     position: absolute;
     bottom: 50px;
+
+    .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+    }
+
+    .arrow {
+        animation: arrowdance 1.5s ease infinite;
+    }
 }
 
 .objective {
@@ -133,7 +175,7 @@ export default {}
         border: 10px solid white;
         cursor: pointer;
         transition: transform 1s ease-in-out;
-        animation: pulse 1s infinite cubic-bezier(.57,.21,.69,1.25);
+        animation: pulse 1s infinite cubic-bezier(.57, .21, .69, 1.25);
 
         &.one {
             left: $objectiveDotHorizontalPostion;
