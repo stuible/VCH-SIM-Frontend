@@ -12,8 +12,6 @@
 <script>
 import VideoModule from '~/components/landing/VideoModule.vue'
 import Hero from '~/components/landing/Hero.vue'
-// const consola = require('consola')
-// import axios from 'axios'
 
 export default {
     components: {
@@ -28,27 +26,6 @@ export default {
         }
     },
     asyncData ({env}){
-        // let thumbnails = [];
-        // for (let video in this.$store.state.videos) {
-        
-        //   const thumbnail = await axios.post(`${process.env.cockpit.apiUrl}/cockpit/image?token=${process.env.cockpit.apiToken}`,
-        //     JSON.stringify({
-        //       src: this.$store.state.videos[video].thumbnail,
-        //       w:500,
-        //       options: {
-        //         "mode":"resize",
-        //         "quality":80
-        //       },
-        //     }),
-        //     {
-        //       headers: {
-        //         "Content-Type": "application/json"
-        //       }
-        //     }
-        //   )
-        //   console.log(thumbnail.data)
-        //   thumbnails.push(thumbnail.data)
-        // }
 
         return {
             cockpit: env.cockpit
