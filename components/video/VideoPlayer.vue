@@ -105,27 +105,24 @@ video {
     grid-area: video;
     // height: 400px;
     width: 100%;
-    
-
-    // &::-webkit-media-controls-enclosure {
-    //     font-size: 50%;
-    // }
 
     &::-webkit-media-controls-panel {
         background: none;
         // box-shadow:  inset 0px -1em 0px 0px rgba(0,0,0,0.55);
-        background: linear-gradient(rgba(0,0,0,0) 50%,rgba(0,0,0,0.5), rgba(0,0,0,0.5) 50%);
+        // background: linear-gradient(rgba(0,0,0,0) 50%,rgba(0,0,0,0.5), rgba(0,0,0,0.5) 50%);
 
         @include breakpoint(phone) {
-            background: linear-gradient(rgba(0,0,0,0) 72%,rgba(0,0,0,0.5), rgba(0,0,0,0.5) 72%);
+            // background: linear-gradient(rgba(0,0,0,0) 72%,rgba(0,0,0,0.5), rgba(0,0,0,0.5) 72%);
+            box-shadow:  inset 0px -80px 0px 0px rgba(0,0,0,0.55);
         }
 
         @include breakpoint(tablet) {
-            background: linear-gradient(rgba(0,0,0,0) 70%,rgba(0,0,0,0.5), rgba(0,0,0,0.5) 70%);
+            // background: linear-gradient(rgba(0,0,0,0) 70%,rgba(0,0,0,0.5), rgba(0,0,0,0.5) 70%);
         }
 
         @include breakpoint(desktop) {
-            background: linear-gradient(rgba(0,0,0,0) 80%,rgba(0,0,0,0.5), rgba(0,0,0,0.5) 80%);
+            // background: linear-gradient(rgba(0,0,0,0) 80%,rgba(0,0,0,0.5), rgba(0,0,0,0.5) 80%);
+            box-shadow:  inset 0px -100px 0px 0px rgba(0,0,0,0.55);
         }
 
     }
