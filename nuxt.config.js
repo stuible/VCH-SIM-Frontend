@@ -29,7 +29,7 @@ module.exports = {
   router: {
     base: '/',
   },
-  css : [
+  css: [
     // '~/assets/scss/base.scss'
   ],
   /*
@@ -39,6 +39,15 @@ module.exports = {
   /*
   ** Build configuration
   */
+  babel: {
+    presets: [
+      ['vue-app', {
+        useBuiltIns: true,
+        targets: { ie: 11, uglify: true }
+      }
+      ]
+    ]
+  },
   build: {
     vendor: ['SmoothScroll'],
     styleResources: {
