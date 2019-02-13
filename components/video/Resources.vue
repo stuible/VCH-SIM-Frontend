@@ -71,7 +71,7 @@ div.resources {
     color: $fontColour;
     text-decoration: none;
     cursor: pointer;
-    max-width: 250px;
+    max-width: 500px;
     margin-bottom: 15px;
     padding: 1em;
     border-radius: 1em;
