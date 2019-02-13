@@ -27,14 +27,22 @@ export default {
             required: true
         }
     },
+    data(){
+        return {
+            submitted: false
+        }
+    },
     methods: {
         submit() {
             this.$refs.options.classList.add('reveal')
             this.$refs.feedbackEl.textContent = this.video.feedback
+            this.submitted = true
         },
         select(div){
-            console.log(div);
-            div.classList.toggle('selected')
+            if(!this.submitted){
+                console.log(div);
+                div.classList.toggle('selected')
+            }
         }
     }
 }
@@ -131,7 +139,7 @@ svg.feedback {
 }
 
 button{
-    background-color: darkgray;
+    background-color: $accentTeal;
     cursor: pointer;
     text-decoration: none;
     color: white;
