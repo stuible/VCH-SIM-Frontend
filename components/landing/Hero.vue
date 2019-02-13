@@ -3,39 +3,65 @@
     <div class="background" v-lazy:background-image="require('~/assets/image/hero.jpg')"></div>
 
     <div class="content">
-        <img class="title" alt="Simulation" draggable="false" src="~/assets/image/logos/simulation-hero.svg" />
-        <div class="subtitle">is a techique - not a technology - to replace or amplify real expriences with guided
-            expriences...</div>
+        <img
+        class="title"
+        alt="Simulation"
+        draggable="false"
+        src="~/assets/image/logos/simulation-hero.svg"
+      >
+        <div class="subtitle">
+            is a techique - not a technology - to replace or amplify real expriences with guided
+            expriences...
+        </div>
     </div>
 
     <!-- OBJECTIVES -->
-    <div class="objective dot one"></div>
-    <div class="objective box one">Explore commonly used debriefing models</div>
+    <div class="objective dot">
+        <div class="wrapper one">
+            <div class="dot"></div>
+            <div class="objective box one">Explore commonly used debriefing models</div>
+        </div>
+    </div>
+    
+    <div class="objective dot">
+        <div class="wrapper two">
+            <div class="dot"></div>
+            <div class="objective box two">Recognize appropriate contexts for simulation based education</div>
+        </div>
+    </div>
 
-    <div class="objective dot two"></div>
-    <div class="objective box two">Recognize appropriate contexts for simulation based education</div>
+    <div class="objective dot">
+        <div class="wrapper three">
+            <div class="dot"></div>
+            <div class="objective box three">Identify the principles of simulation-based education</div>
+        </div>
+    </div>
 
-    <div class="objective dot three"></div>
-    <div class="objective box three">Identify the principles of simulation-based education</div>
+    <div class="objective dot">
+        <div class="wrapper four">
+            <div class="dot"></div>
+            <div class="objective box four">Describe the basic elements and stages of a simulation educational intervention</div>
+        </div>
+    </div>
 
-    <div class="objective dot four"></div>
-    <div class="objective box four">Describe the basic elements and stages of a simulation educational intervention</div>
-
-    <a href="#modules" class="scroll-indicator" v-smooth-scroll="{ duration: 500, offset: -75, container: '' }">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.5 47.5">
-            <g id="scroll_icon">
-                <circle cx="23.75" cy="23.75" r="21.75" class="cls-1"/>
-                <polyline points="34.87 20.12 23.75 31.24 12.63 20.12" class="cls-1 arrow"/>
-            </g>
-    </svg>
-
+    <a
+      href="#modules"
+      class="scroll-indicator"
+      v-smooth-scroll="{ duration: 500, offset: -75, container: '' }"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.5 47.5">
+        <g id="scroll_icon">
+          <circle cx="23.75" cy="23.75" r="21.75" class="cls-1"></circle>
+          <polyline points="34.87 20.12 23.75 31.24 12.63 20.12" class="cls-1 arrow"></polyline>
+        </g>
+      </svg>
     </a>
 </div>
 </template>
 
 <script>
-const heroImage = require('~/assets/image/hero.jpg')
-export default {}
+const heroImage = require("~/assets/image/hero.jpg");
+export default {};
 </script>
 
 <style lang="scss" scoped>
@@ -70,7 +96,7 @@ export default {}
     opacity: 0;
     transition: filter 1000ms linear, opacity 500ms linear 500ms;
 
-    &[lazy=loaded] {
+    &[lazy="loaded"] {
         opacity: 1;
     }
 }
@@ -102,7 +128,7 @@ export default {}
 }
 
 .subtitle {
-    font-size: 1.30em;
+    font-size: 1.3em;
     margin-top: 0.5em;
     opacity: 0;
     animation: fadein 700ms ease-in 500ms forwards;
@@ -166,57 +192,81 @@ export default {}
 
     $objectiveDotHorizontalPostion: 20%;
     $objectiveDotVerticlePostion: 20%;
+    $dotHeight: 25px;
 
-    &.dot {
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
+    .wrapper {
+
         position: absolute;
-        border: 10px solid white;
-        cursor: pointer;
-        transition: transform 1s ease-in-out;
-        animation: pulse 1s infinite cubic-bezier(.57, .21, .69, 1.25);
+        text-align: center;
+
+        .dot {
+            box-shadow: 0 0 0 0 rgba($accentTeal, .5);
+            cursor: pointer;
+            transition: transform 1s ease-in-out;
+            animation: ahssan-pulse 1s infinite cubic-bezier(0.57, 0.21, 0.69, 1.25);
+            background-color: white;
+            border-radius: 50%;
+            height: $dotHeight;
+            width: $dotHeight;
+            border-radius: 50%;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            &:hover {
+                // animation: none;
+                // transform: scale(1.25);
+            }
+
+            &:hover+.box {
+                opacity: 1;
+            }
+        }
 
         &.one {
             left: $objectiveDotHorizontalPostion;
             bottom: calc(#{$objectiveDotVerticlePostion});
-            animation-delay: 200ms;
+
+            .dot {
+                animation-delay: 100ms;
+            }
         }
 
         &.two {
-            right: $objectiveDotHorizontalPostion;
+            right: calc(#{$objectiveDotHorizontalPostion} + #{$dotHeight});
             bottom: calc(#{$objectiveDotVerticlePostion});
-            animation-delay: 0ms;
+
+            .dot {
+                animation-delay: 0ms;
+            }
         }
 
         &.three {
             left: $objectiveDotHorizontalPostion;
             top: calc(#{$objectiveDotVerticlePostion});
-            // top: calc(#{$objectiveDotVerticlePostion} + #{$navHeight});
-            animation-delay: 400ms;
+
+            .dot {
+                animation-delay: 200ms;
+            }
         }
 
         &.four {
-            right: $objectiveDotHorizontalPostion;
+            right: calc(#{$objectiveDotHorizontalPostion} + #{$dotHeight});
             top: calc(#{$objectiveDotVerticlePostion});
-            // top: calc(#{$objectiveDotVerticlePostion} + #{$navHeight});
-            animation-delay: 600ms;
+
+            .dot {
+                animation-delay: 300ms;
+            }
         }
 
-        &:hover {
-            animation: grow 300ms forwards cubic-bezier(0.455, 0.03, 0.515, 0.955);
-            // transform: scale(1.25);
-        }
-
-        &:hover+.box {
-            opacity: 1;
-        }
     }
 
     $objectiveBoxHorizontalOffest: 20px;
     $objectiveBoxVerticleOffest: 50px;
 
-    &.box {
+    .box {
         opacity: 0;
         padding: 10px;
         width: max-content;
@@ -233,13 +283,13 @@ export default {}
 
         &.one {
             left: calc(#{$objectiveDotHorizontalPostion} + #{$objectiveBoxHorizontalOffest});
-            bottom: calc(#{$objectiveDotVerticlePostion} + #{$objectiveBoxVerticleOffest});
+            bottom: calc(#{$objectiveDotVerticlePostion} + #{$objectiveBoxVerticleOffest - $dotHeight});
             border-left-width: 7px;
         }
 
         &.two {
-            right: calc(#{$objectiveDotHorizontalPostion} + #{$objectiveBoxHorizontalOffest});
-            bottom: calc(#{$objectiveDotVerticlePostion} + #{$objectiveBoxVerticleOffest});
+            right: calc(#{$objectiveDotHorizontalPostion} + #{$objectiveBoxHorizontalOffest - $dotHeight});
+            bottom: calc(#{$objectiveDotVerticlePostion} + #{$objectiveBoxVerticleOffest - $dotHeight});
             border-right-width: 7px;
         }
 
@@ -251,17 +301,16 @@ export default {}
         }
 
         &.four {
-            right: calc(#{$objectiveDotHorizontalPostion} + #{$objectiveBoxHorizontalOffest});
+            right: calc(#{$objectiveDotHorizontalPostion} + #{$objectiveBoxHorizontalOffest - $dotHeight});
             // top: calc(#{$objectiveDotVerticlePostion} + #{$navHeight + $objectiveBoxVerticleOffest});
             top: calc(#{$objectiveDotVerticlePostion} + #{$objectiveBoxVerticleOffest});
             border-right-width: 7px;
         }
     }
 
-    &.box,
-    &.box:link,
-    &.box:visited {
-
+    .box,
+    .box:link,
+    .box:visited {
         border: 2px solid transparent;
         transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
@@ -304,10 +353,9 @@ export default {}
                 border: 5px solid #fff;
             }
         }
-
     }
 
-    &.dot:hover+.box {
+    .dot:hover+.box {
         border-color: #ffffff;
         transition: border-color 0.2s 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
