@@ -29,16 +29,13 @@ module.exports = {
   router: {
     base: '/',
   },
-  css: [
+  css : [
     // '~/assets/scss/base.scss'
   ],
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#5FE3C4' },
-  /*
-  ** Build configuration
-  */
   babel: {
     presets: [
       ['vue-app', {
@@ -48,6 +45,9 @@ module.exports = {
       ]
     ]
   },
+  /*
+  ** Build configuration
+  */
   build: {
     vendor: ['SmoothScroll'],
     styleResources: {
