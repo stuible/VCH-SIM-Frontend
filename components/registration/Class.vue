@@ -1,10 +1,12 @@
 <template>
 <div class="class">
     <div class="info">
-        <h2>{{ classInfo.authority }}</h2>
-        <h3 class="duration" v-if="classInfo.duration">{{ classInfo.duration }}</h3>
-        <h5 class="location" v-if="classInfo.location">{{ classInfo.location }}</h5>
-        <h5 class="instructor" v-if="classInfo.instructor">{{ classInfo.instructor }}</h5>
+        <h2>{{ classInfo.site }}</h2>
+        <h3 class="duration" v-if="classInfo.duration">{{ classInfo.duration }} minutes</h3>
+        <!-- <h5 class="location" v-if="classInfo.location">{{ classInfo.location }}</h5> -->
+        <div>For more info, contact:</div>
+        <h5 class="instructor" v-if="classInfo.instructor"><a :href="'mailto:' + classInfo.instructorEmail">{{ classInfo.instructor }}</a></h5>
+        <div class="position">{{classInfo.instructorPosition}}</div>
     </div>
     <div class="register"><a class="button" :href="classInfo.url" target="_blank">Register</a></div>
 </div>
@@ -48,6 +50,14 @@ h5 {
 .info {
     display: inline-block;
 }
+.instructor a{
+    color: darkgray;
+    font-size: 1.25em;
+}
+.position {
+    font-size: 0.8em;
+}
+
 .register {
     // display: inline-block;
     align-self: center;
