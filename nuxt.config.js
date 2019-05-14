@@ -7,7 +7,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt frontend for VCH&apos;s SIM Site' },
+      { hid: 'description', name: 'description', content: 'Vancouver Coastal Health Simulation website' },
       // { name: 'msapplication-TileColor', content='#ffffff'},
       { name: 'theme-color', content: '#ffffff' }
     ],
