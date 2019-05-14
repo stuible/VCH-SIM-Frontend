@@ -13,21 +13,21 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "@nuxtjs/style-resources": "^0.1.1",
+    "@nuxtjs/style-resources": "^0.1.2",
     "axios": "^0.18.0",
-    "consola": "^2.2.6",
+    "consola": "^2.6.1",
     "normalize-scss": "^7.0.1",
-    "nuxt": "^2.3.1",
+    "nuxt": "^2.6.3",
     "nuxt-sass-resources-loader": "^2.0.5",
-    "vue2-smooth-scroll": "^1.0.3"
+    "vue2-smooth-scroll": "^1.0.5"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "eslint": "^4.19.1",
+    "eslint": "^5.16",
     "eslint-friendly-formatter": "^4.0.1",
-    "eslint-loader": "^2.1.1",
-    "eslint-plugin-vue": "^4.0.0",
-    "node-sass": "^4.11.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "vue-lazyload": "^1.2.6"
   }
