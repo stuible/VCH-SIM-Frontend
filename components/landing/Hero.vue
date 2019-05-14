@@ -10,7 +10,7 @@
         src="~/assets/image/logos/simulation-hero.svg"
       >
         <div class="subtitle">
-            is a techique - not a technology - to replace or amplify real experiences with guided expriences...
+            is a technique - not a technology - to replace or amplify real experiences with guided experiences...
         </div>
     </div>
 
