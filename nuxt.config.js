@@ -81,7 +81,10 @@ module.exports = {
   // ],
   modules: [
     // ['nuxt-sass-resources-loader', '@/assets/scss/variables.scss'],
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-136341129-1'
+    }]
     // ["nuxt-imagemin", {
     //   jpegtran: true,
     //   svgo: {
