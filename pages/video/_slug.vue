@@ -50,7 +50,7 @@ export default {
         let video = await store.state.videos.find(x => x.slug === params.slug)
         let nextVideo = store.state.videos[parseInt(video.order)]
 
-        consola.log(video);
+        // consola.log(video);
         // consola.log(nextVideo);
         try {
             var {
@@ -75,8 +75,8 @@ export default {
           var data = undefined
         }
 
-        consola.log('!!!poster:')
-        consola.log(data);
+        // consola.log('!!!poster:')
+        // consola.log(data);
 
         return {
             video: video,
@@ -88,12 +88,12 @@ export default {
     },
     methods: {
         showPopup() {
-            console.log('show popup called')
+            // console.log('show popup called')
             this.$refs.popup.toggle()
         }
     },
     mounted() {
-        console.log(this.$route.query.play === true)
+        // console.log(this.$route.query.play === true)
     }
 };
 </script>

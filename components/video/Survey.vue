@@ -71,18 +71,18 @@ export default {
         //The API returns two extra items that begin with '_' but are not questions.  This filters those out
         questionsTrimmed: function () {
             let trimmed = Object.entries(this.questions).filter(function (entry) {
-                console.log(entry[1])
+                // console.log(entry[1])
                 return !entry[0].startsWith("_");
             })
-            console.log(Object.values(trimmed))
+            // console.log(Object.values(trimmed))
             return trimmed
         }
     },
     methods: {
         clearListeners() {
-            console.log('removing listeners')
+            // console.log('removing listeners')
             if (this.stars != null) {
-                console.log('about to iterate through stars, there are ' + this.stars.length)
+                // console.log('about to iterate through stars, there are ' + this.stars.length)
                 this.stars.forEach(function (star, index) {
                     star.removeEventListener("mouseover", star.fn, false);
                 });
@@ -98,7 +98,7 @@ export default {
 
             // console.log(this.stars)
 
-            console.log(this.stars)
+            // console.log(this.stars)
 
             let that = this;
             this.stars.forEach((star, index) => {
@@ -130,7 +130,7 @@ export default {
 
             this.starContainer.addEventListener("mouseleave", this.starContainer.fn=function fn() {
 
-                console.log('leaving star container');
+                // console.log('leaving star container');
                 for (var i = 0; i < that.stars.length; i++) {
                     that.stars[i].classList.remove("hover");
                 }
@@ -141,21 +141,21 @@ export default {
             this.showSlides(this.slideIndex += n);
         },
         currentSlide(n) {
-            console.log("cliicked dot: " + n)
+            // console.log("cliicked dot: " + n)
             this.showSlides(n);
         },
         showSlides(n) {
 
-            console.log("about to display: " + parseInt(n))
+            // console.log("about to display: " + parseInt(n))
             if (parseInt(n) > this.$refs.questionsEl.length - 1) {
-                console.log(parseInt(n) + ' > ' + this.$refs.questionsEl.length - 1)
-                console.log("setting slide index to 0")
+                // console.log(parseInt(n) + ' > ' + this.$refs.questionsEl.length - 1)
+                // console.log("setting slide index to 0")
                 this.slideIndex = 0
             } else if (parseInt(n) < 0) {
-                console.log(n + ' < 0')
+                // console.log(n + ' < 0')
                 this.slideIndex = this.$refs.questionsEl.length - 1
             } else {
-                console.log("it's a legit slide")
+                // console.log("it's a legit slide")
                 this.slideIndex = n;
             }
         },
@@ -165,7 +165,7 @@ export default {
             stars.forEach(function (star, index) {
                 if (star.classList.contains('selected')) rating++
             })
-            console.log(rating)
+            // console.log(rating)
 
             const survey = await axios.post(`${process.env.cockpit.apiUrl}/forms/submit/Survey?token=${process.env.cockpit.apiToken}`,
                 JSON.stringify({
@@ -184,8 +184,8 @@ export default {
                     }
                 }
             );
-            console.log(survey);
-            console.log(this.slideIndex)
+            // console.log(survey);
+            // console.log(this.slideIndex)
             this.showSlides(this.slideIndex + 1);
         }
     }
