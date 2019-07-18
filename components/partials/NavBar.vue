@@ -26,6 +26,7 @@
                             <!-- <li><nuxt-link to="/contact">Contact</nuxt-link></li> -->
                             <!-- <li><nuxt-link to="/objectives">Course Objectives</nuxt-link></li> -->
                             <li><a href="https://www.ssih.org/dictionary" target="_blank">SIM Dictionary</a></li>
+                            <li><a href="https://bcsimulation.ca" target="_blank">BCSN</a></li>
                         </ul>
                     </div>
                 </li>
