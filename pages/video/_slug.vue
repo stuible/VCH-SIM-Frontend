@@ -58,11 +58,11 @@ export default {
             } = await axios.post(`${env.cockpit.apiUrl}/cockpit/image?token=${env.cockpit.apiToken}`,
                 JSON.stringify({
                     src: video.thumbnail,
-                    w: 1700,
-                    h: 957,
+                    w: 850,
+                    h: 478,
                     options: {
                         "mode": "resize",
-                        "quality": 80
+                        "quality": 70
                     },
                 }), {
                     headers: {
