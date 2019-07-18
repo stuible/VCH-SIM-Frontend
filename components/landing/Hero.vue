@@ -196,7 +196,7 @@ export default {};
     .wrapper {
 
         position: absolute;
-        text-align: center;
+        // text-align: center;
 
         .dot {
             box-shadow: 0 0 0 0 rgba($accentTeal, .5);
