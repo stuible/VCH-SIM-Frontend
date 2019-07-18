@@ -40,7 +40,7 @@ export default {
         },
         select(div){
             if(!this.submitted){
-                console.log(div);
+                // console.log(div);
                 div.classList.toggle('selected')
             }
         }

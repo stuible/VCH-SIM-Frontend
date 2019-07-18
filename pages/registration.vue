@@ -31,7 +31,7 @@ export default {
         }
       }
     );
-    console.log(data.Class)
+    // console.log(data.Class)
     return {
       classes: data.Class,
     };

@@ -54,13 +54,13 @@ export default {
     },
     methods: {
         open() {
-            console.log('opening');
+            // console.log('opening');
             // this.$refs.popup.style.transform = "translate(0, 0px)";
             // this.isOpen = true;
             this.show = true;
         },
         close() {
-            console.log('closing');
+            // console.log('closing');
             // let headerHeight = this.$refs.popup.querySelector('.header').offsetHeight;
             // this.$refs.popup.style.transform = "translate(0, " + (this.$refs.popup.offsetHeight - headerHeight) + "px)";
             // this.isOpen = false;
@@ -68,7 +68,7 @@ export default {
         },
         toggle() {
             
-            console.log(this.show);
+            // console.log(this.show);
 
             if (this.show) {
                 this.close();

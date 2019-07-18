@@ -53,11 +53,11 @@ export default {
             //    console.log(clickedElement.tagName.toLowerCase())
                 if (targetElement == menuEl) {
                     if(clickedElement.tagName.toLowerCase() === "a" && clickedElement !== undefined){
-                      console.log('is a link')
+                    //   console.log('is a link')
                       if(this.open) this.open = false
                     }
                     // This is a click inside. Do nothing, just return.
-                    console.log('you clicked inside the element')
+                    // console.log('you clicked inside the element')
                     return;
                 }
                 // Go up the DOM

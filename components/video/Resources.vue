@@ -33,7 +33,7 @@ export default {
     },
     methods: {
         getFAIconClass(type) {
-            console.log(type);
+            // console.log(type);
             switch (type) {
                 case 'pdf':
                     return 'fa-file-pdf'

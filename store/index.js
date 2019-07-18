@@ -18,8 +18,8 @@ const videoStore = () => {
       },
       addThumbnail(state, payload){
         state.thumbnails[payload.id] = payload.thumbnail
-        console.log(payload.id + 'has this: ' + payload.thumbnail)
-        console.log(state.thumbnails)
+        // console.log(payload.id + 'has this: ' + payload.thumbnail)
+        // console.log(state.thumbnails)
       }
     },
     getters: {

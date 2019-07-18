@@ -41,7 +41,7 @@ export default {
     methods: {
         getThumbnail() {
             if (!(this.video._id in this.$store.state.thumbnails)) {
-                console.log("don't have the thumbnails, grabbing via API")
+                // console.log("don't have the thumbnails, grabbing via API")
                 axios.post(`${process.env.cockpit.apiUrl}/cockpit/image?token=${process.env.cockpit.apiToken}`,
                     JSON.stringify({
                         src: this.video.thumbnail,
@@ -66,7 +66,7 @@ export default {
                 })
             }
             else {
-                console.log("We DO have the thumbnails, grabbing via Store")
+                // console.log("We DO have the thumbnails, grabbing via Store")
                 this.thumbnail = this.$store.getters.getThumbnailById(this.video._id)
             }
 

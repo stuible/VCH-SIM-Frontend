@@ -32,7 +32,7 @@ export default {
     computed: {
 
         isActive() {
-            console.log(el)
+            // console.log(el)
             // return (el => this.isActiveButton(el))).length === 0
             return false
         },
@@ -55,7 +55,7 @@ export default {
 
         // },
         slideIndex() {
-            console.log('detected stars have changed: ' + this.slideIndex)
+            // console.log('detected stars have changed: ' + this.slideIndex)
             this.clearListeners();
             this.starContainer = this.$refs.questionsEl[this.slideIndex];
             this.stars = this.starContainer.querySelectorAll(".fa-star");
