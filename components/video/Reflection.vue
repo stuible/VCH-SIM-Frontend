@@ -7,7 +7,12 @@
         </svg>
         <div class="question">{{video.question}}</div>
         <div class="options" ref="options">
-            <div class="option" v-for="(a, index) in video.answers" v-bind:key="index" @click="select($event.target)" v-bind:class="{'true': a.value.correct,  'false': !a.value.correct}">{{a.value.answer}}</div>
+            <div class="option" v-for="(a, index) in videoData.answers" v-bind:key="index" @click="select(index)" :class="{'selected': a.selected, 'true': a.value.correct,  'false': !a.value.correct}">
+                <div class="checkbox-container">
+                    <div class="checkbox"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="text">{{a.value.answer}}</div>
+            </div>
             <button @click="submit()">Submit</button>
         </div>
         <div class="divider"></div>
@@ -27,9 +32,10 @@ export default {
             required: true
         }
     },
-    data(){
+    data() {
         return {
-            submitted: false
+            submitted: false,
+            videoData: this.$props.video
         }
     },
     methods: {
@@ -38,10 +44,17 @@ export default {
             this.$refs.feedbackEl.textContent = this.video.feedback
             this.submitted = true
         },
-        select(div){
-            if(!this.submitted){
+        select(index) {
+            console.log(`index is: ${this.videoData.answers[index].selected}`);
+            if (!this.submitted) {
+                if(this.videoData.answers[index].selected === undefined){
+                    // this.videoData.answers[index].selected = true;
+                    this.$set( this.videoData.answers[index], 'selected', true )
+                }
+                else this.$set( this.videoData.answers[index], 'selected', !this.videoData.answers[index].selected );
+                console.log(`index is now: ${this.videoData.answers[index].selected}`);
                 // console.log(div);
-                div.classList.toggle('selected')
+                // div.classList.toggle('selected')
             }
         }
     }
@@ -52,16 +65,24 @@ export default {
 .container {
     display: grid;
     height: 100%;
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     grid-gap: 25px 25px;
-    grid-template-areas: "title title"
+    grid-template-areas: 
+        "title"
+        "question-image"
+        "question"
+        "feedbackicon "
+        "feedbacktext"
+        "options";
+
+    @include breakpoint(phone) {
+        grid-template-columns: 60px 1fr;
+        grid-template-areas: 
+        "title title"
         "question-image question"
         "feedbackicon feedbacktext"
         ". options";
-
-    @include breakpoint(phablet) {
-        grid-template-columns: 60px 1fr;
     }
 
     @include breakpoint(tablet) {
@@ -106,6 +127,7 @@ svg.feedback {
     grid-area: options;
 
     .option {
+        display: flex;
         margin-bottom: 15px;
         padding: 1em 1em 1em 1em;
         // border-left: solid 1em #ffffff00;
@@ -116,15 +138,45 @@ svg.feedback {
         color: #7a7a7a;
         transition: background-color 300ms linear, border-left 300ms linear;
 
+        .checkbox-container {
+            // width: 50px;
+            // height: 50px;
+            // background-color: grey;
+            // display: inline-block;
+            display: flex;
+            align-items: center;
+
+            .checkbox {
+                border: #7a7a7a solid 1px;
+                padding: 5px;
+                border-radius: 1em;
+            }
+
+            i {
+                height: 1.1em;
+                width: 1.1em;
+                opacity: 0;
+            }
+        }
+
+        .text {
+            padding-left: 1em;
+            // display: inline-block;
+        }
+
         &:hover {
             background-color: #f3f3f3;
             // border-left: solid 1em #f3f3f3;
         }
 
         &.selected {
-            background-color: #EDEDED;
-            color: #5a5a5a;
+            // background-color: #EDEDED;
+            // color: #5a5a5a;
             // border-left: solid 1em #d8d8d8;
+
+             i {
+                opacity: 1;
+            }
         }
     }
 }
@@ -138,7 +190,8 @@ svg.feedback {
     }
 }
 
-button{
+
+button {
     background-color: $accentTeal;
     cursor: pointer;
     text-decoration: none;
