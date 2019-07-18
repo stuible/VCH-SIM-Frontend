@@ -2,20 +2,19 @@
 <section class="video">
     <div class="container full">
         <h1 class="title">{{ video.title }}</h1>
-        <video controls ref="video" :poster="baseURL + '/' + video.thumbnail">
-                <source :src="baseURL + '/storage/uploads' + video.video.path" type="video/mp4">
-                Your browser does not support this video.
-            </video>
+        <video controls ref="video" :poster="poster">
+            <source :src="baseURL + '/storage/uploads' + video.video.path" type="video/mp4" />Your browser does not support this video.
+        </video>
         <div class="extras">
             <a class="extra" download :href="baseURL + '/storage/uploads' + video.audio.path" target="_blank">
-                <img src="~assets/image/icon/download-audio.svg" alt="">
+                <img src="~assets/image/icon/download-audio.svg" alt />
                 <div class="info">
                     <div class="name">Download Audio</div>
                     <div class="size">{{ video.audio.size | prettyBytes }}</div>
                 </div>
             </a>
             <a class="extra" download :href="baseURL + '/storage/uploads' + video.transcript.path" target="_blank">
-                <img src="~assets/image/icon/pdf.svg" alt="">
+                <img src="~assets/image/icon/pdf.svg" alt />
                 <div class="info">
                     <div class="name">Download Transcript</div>
                     <div class="size">{{ video.transcript.size | prettyBytes }}</div>
@@ -27,7 +26,7 @@
 </template>
 
 <script>
-const consola = require('consola')
+import axios from 'axios'
 export default {
     props: {
         baseURL: String,
@@ -35,9 +34,11 @@ export default {
             type: Object,
             required: true
         },
+        poster: String,
         autoplay: Boolean
     },
     mounted() {
+        // this.getPoster();
         this.$refs.video.addEventListener('ended', this.ended, false);
         if (this.autoplay) {
             this.$refs.video.play()
@@ -46,7 +47,7 @@ export default {
     },
     methods: {
         ended() {
-            console.log('video done')
+            // console.log('video done')
             this.$emit('videoDone', {
                 id: this.video.title,
             })
@@ -57,7 +58,11 @@ export default {
                 var clean_uri = uri.substring(0, uri.indexOf("?"));
                 window.history.replaceState({}, document.title, clean_uri);
             }
-        }
+        },
+        getPoster() {
+        // console.log("don't have the thumbnails, grabbing via API")
+        
+    }
     }
 }
 </script>
@@ -69,12 +74,14 @@ export default {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto 1fr auto;
     grid-gap: 45px 50px;
-    grid-template-areas: "title title title title"
+    grid-template-areas:
+        "title title title title"
         "video video video video"
         "extras extras extras extras";
 
     @include breakpoint(phablet) {
-        grid-template-areas: "title title title title"
+        grid-template-areas:
+            "title title title title"
             "video video video video"
             "extras extras extras extras";
         grid-template-rows: auto 1fr auto;
@@ -82,19 +89,20 @@ export default {
     }
 
     @include breakpoint(tablet) {
-        grid-template-areas: "title title title title"
+        grid-template-areas:
+            "title title title title"
             "video video video extras";
         grid-template-columns: 1fr 1fr 1fr 1.75fr;
         grid-template-rows: auto 1fr;
     }
 
     @include breakpoint(desktop) {
-        grid-template-areas: "title title title title"
+        grid-template-areas:
+            "title title title title"
             "video video video extras";
         grid-template-rows: auto 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-
 }
 
 .title {
@@ -113,7 +121,7 @@ video {
 
         @include breakpoint(phone) {
             // background: linear-gradient(rgba(0,0,0,0) 72%,rgba(0,0,0,0.5), rgba(0,0,0,0.5) 72%);
-            box-shadow:  inset 0px -80px 0px 0px rgba(0,0,0,0.55);
+            box-shadow: inset 0px -80px 0px 0px rgba(0, 0, 0, 0.55);
         }
 
         @include breakpoint(tablet) {
@@ -122,11 +130,9 @@ video {
 
         @include breakpoint(desktop) {
             // background: linear-gradient(rgba(0,0,0,0) 80%,rgba(0,0,0,0.5), rgba(0,0,0,0.5) 80%);
-            box-shadow:  inset 0px -100px 0px 0px rgba(0,0,0,0.55);
+            box-shadow: inset 0px -100px 0px 0px rgba(0, 0, 0, 0.55);
         }
-
     }
-
 }
 
 .extras {
@@ -135,7 +141,6 @@ video {
     margin-left: 25px;
 
     .extra {
-
         text-decoration: none;
         display: block;
         color: $fontColour;
@@ -168,7 +173,6 @@ video {
             margin-left: 1em;
             max-width: 70%;
         }
-
     }
 
     @include breakpoint(phablet) {
