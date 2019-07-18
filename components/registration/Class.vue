@@ -26,8 +26,8 @@ export default {
 <style lang="scss" scoped>
 .class {
     margin-bottom: 2em;
-    border-bottom: 2px solid rgb(228, 228, 228);
-    padding-bottom: 1em;
+    border-bottom: 2px solid #e9e8e8;
+    padding-bottom: 2em;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -51,8 +51,14 @@ h5 {
     display: inline-block;
 }
 .instructor a{
-    color: darkgray;
+    color: rgb(65, 65, 65);
+    // text-decoration: none;
+    // border-bottom: 2px solid $accentTeal;
     font-size: 1.25em;
+
+    // &:hover {
+    //     text-decoration: underline;
+    // }
 }
 .position {
     font-size: 0.8em;
@@ -64,16 +70,18 @@ h5 {
 }
 
 .button{
-    background-color: darkgray;
+    background-color: none;
     text-decoration: none;
-    color: white;
+    color: $accentTeal;
     font-weight: 600;
     padding: 1em 2em;
     border-radius: 1em;
+    border: 2px solid $accentTeal;
     transition: background-color 100ms ease-in;
 
     &:hover {
         background-color: $accentTeal;
+        color: white;
     }
 }
 </style>
