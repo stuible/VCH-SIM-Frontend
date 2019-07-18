@@ -53,9 +53,9 @@ export default {
     };
   },
   mounted() {
-    console.log(
-      `path starts with '/video/': ${this.$route.path.startsWith("/video/")}`
-    );
+    // console.log(
+    //   `path starts with '/video/': ${this.$route.path.startsWith("/video/")}`
+    // );
     document.addEventListener("click", evt => {
       const menuEl = this.$refs.menu;
       let clickedElement = evt.target; // clicked element
