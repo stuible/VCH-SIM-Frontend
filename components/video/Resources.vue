@@ -4,7 +4,7 @@
         <div class="title">Resources</div>
         <div class="resources">
             <a class="item" v-for="r in video.resources" :key="r.id" :href="r.value.url" target="_blank">
-                <img :class="'fa ' + getFAIconClass(r.value.type)" style="font-size: 25px" src="" alt="">
+                <i :class="'fa ' + getFAIconClass(r.value.type)" style="font-size: 25px" src="" alt=""></i>
                 <div class="info">
                     <div class="name">{{r.value.title}}</div>
                     <!-- <div class="size">2.5MB</div> -->
@@ -33,7 +33,7 @@ export default {
     },
     methods: {
         getFAIconClass(type) {
-            // console.log(type);
+            console.log(type);
             switch (type) {
                 case 'pdf':
                     return 'fa-file-pdf'
@@ -84,7 +84,7 @@ div.resources {
         background-color: rgb(245, 245, 245);
     }
 
-    img {
+    i {
         display: inline-block;
         margin-right: 15px;
         width: 25px;
