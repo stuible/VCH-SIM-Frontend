@@ -72,17 +72,17 @@ export default {
         "title"
         "question-image"
         "question"
-        "feedbackicon "
-        "feedbacktext"
-        "options";
+        "options"
+        "feedbackicon"
+        "feedbacktext";
 
     @include breakpoint(phone) {
         grid-template-columns: 60px 1fr;
         grid-template-areas: 
         "title title"
         "question-image question"
-        "feedbackicon feedbacktext"
-        ". options";
+        ". options"
+        "feedbackicon feedbacktext";
     }
 
     @include breakpoint(tablet) {
