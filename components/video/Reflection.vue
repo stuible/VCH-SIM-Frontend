@@ -20,12 +20,13 @@
         <svg class="feedback" id="i-msg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
             <path d="M2 4 L30 4 30 22 16 22 8 29 8 22 2 22 Z" />
         </svg>
-        <div class="feedback" ref="feedbackEl">Select all correct answers and click submit to view feedback.</div>
+        <div class="feedback" ref="feedbackEl" v-html="feedback"></div>
     </div>
 </section>
 </template>
 
 <script>
+const sanitizeHtml = require('sanitize-html');
 export default {
     props: {
         video: {
@@ -36,13 +37,21 @@ export default {
     data() {
         return {
             submitted: false,
-            videoData: this.$props.video
+            videoData: this.$props.video,
+            feedback: 'Select all correct answers and click submit to view feedback.'
         }
     },
     methods: {
         submit() {
             this.$refs.options.classList.add('reveal')
-            this.$refs.feedbackEl.textContent = this.video.feedback
+            this.feedback = sanitizeHtml(this.video.feedback, {
+                allowedTags: ['p', 'b', 'i', 'em', 'strong', 'a'],
+                allowedAttributes: {
+                    'a': ['href']
+                },
+                // allowedIframeHostnames: ['www.youtube.com']
+            });
+
             this.submitted = true
         },
         select(index) {
