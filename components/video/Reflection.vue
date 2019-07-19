@@ -9,9 +9,10 @@
         <div class="options" ref="options">
             <div class="option" v-for="(a, index) in videoData.answers" v-bind:key="index" @click="select(index)" :class="{'selected': a.selected, 'true': a.value.correct,  'false': !a.value.correct}">
                 <div class="checkbox-container">
+                    <div class="number">{{numberToLetter(index + 1)}}</div>
                     <div class="checkbox"><i class="fas fa-check"></i></div>
                 </div>
-                <div class="text">{{a.value.answer}}</div>
+                <div class="text"> {{a.value.answer}}</div>
             </div>
             <button @click="submit()">Submit</button>
         </div>
@@ -47,15 +48,20 @@ export default {
         select(index) {
             console.log(`index is: ${this.videoData.answers[index].selected}`);
             if (!this.submitted) {
-                if(this.videoData.answers[index].selected === undefined){
+                if (this.videoData.answers[index].selected === undefined) {
                     // this.videoData.answers[index].selected = true;
-                    this.$set( this.videoData.answers[index], 'selected', true )
-                }
-                else this.$set( this.videoData.answers[index], 'selected', !this.videoData.answers[index].selected );
+                    this.$set(this.videoData.answers[index], 'selected', true)
+                } else this.$set(this.videoData.answers[index], 'selected', !this.videoData.answers[index].selected);
                 console.log(`index is now: ${this.videoData.answers[index].selected}`);
                 // console.log(div);
                 // div.classList.toggle('selected')
             }
+        },
+        numberToLetter(num) {
+            let mod = num % 26,
+                pow = num / 26 | 0,
+                out = mod ? String.fromCharCode(64 + mod) : (--pow, 'Z');
+            return pow ? this.numberToLetter(pow) + out : out;
         }
     }
 }
@@ -68,7 +74,7 @@ export default {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     grid-gap: 25px 25px;
-    grid-template-areas: 
+    grid-template-areas:
         "title"
         "question-image"
         "question"
@@ -78,11 +84,11 @@ export default {
 
     @include breakpoint(phone) {
         grid-template-columns: 60px 1fr;
-        grid-template-areas: 
-        "title title"
-        "question-image question"
-        ". options"
-        "feedbackicon feedbacktext";
+        grid-template-areas:
+            "title title"
+            "question-image question"
+            ". options"
+            "feedbackicon feedbacktext";
     }
 
     @include breakpoint(tablet) {
@@ -146,6 +152,15 @@ svg.feedback {
             display: flex;
             align-items: center;
 
+            .number {
+                font-size: 1.5em;
+                font-weight: 200;
+                border-right: 2px solid #EDEDED;
+                color: #b8b8b8;
+                margin-right: 0.4em;
+                padding-right: 0.4em;
+            }
+
             .checkbox {
                 border: #7a7a7a solid 1px;
                 padding: 5px;
@@ -174,7 +189,7 @@ svg.feedback {
             // color: #5a5a5a;
             // border-left: solid 1em #d8d8d8;
 
-             i {
+            i {
                 opacity: 1;
             }
         }
@@ -182,14 +197,17 @@ svg.feedback {
 }
 
 .options.reveal {
-    .option.selected.true, .option.false:not(.selected) {
+
+    .option.selected.true,
+    .option.false:not(.selected) {
         border: solid 2px #50b350;
     }
-    .option.selected.false, .option.true:not(.selected) {
+
+    .option.selected.false,
+    .option.true:not(.selected) {
         border: solid 2px #c54646;
     }
 }
-
 
 button {
     background-color: $accentTeal;
