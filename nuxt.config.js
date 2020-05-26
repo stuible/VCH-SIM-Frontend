@@ -29,6 +29,9 @@ module.exports = {
   router: {
     base: '/',
   },
+  generate: {
+    fallback: true
+  },
   css : [
     // '~/assets/scss/base.scss'
   ],
