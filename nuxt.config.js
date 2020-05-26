@@ -29,6 +29,7 @@ module.exports = {
   router: {
     base: '/',
   },
+  mode: 'spa',
   generate: {
     fallback: true
   },
