@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'universal',
   /*
   ** Headers of the page
   */
@@ -29,7 +30,6 @@ module.exports = {
   router: {
     base: '/',
   },
-  mode: 'spa',
   generate: {
     fallback: true
   },
@@ -103,7 +103,7 @@ module.exports = {
     '~plugins/filters.js',
     { src: '~/plugins/smooth-scroll.js', ssr: false },
     '~plugins/lazyloadbackground',
-    { src: '~/plugins/nuxt-client-init.js', ssr: false }
+    //{ src: '~/plugins/nuxt-client-init.js', ssr: false }  //Enable if running in SPA Mode
   ],
   // sassResources: [
   //   resolve(__dirname, "./assets/scss/base.scss")
