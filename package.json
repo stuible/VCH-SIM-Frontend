@@ -20,7 +20,7 @@
     "normalize-scss": "^7.0.1",
     "nuxt": "^2.8.1",
     "nuxt-sass-resources-loader": "^2.0.5",
-    "sanitize-html": "^1.20.1",
+    "sanitize-html": "^2.3.2",
     "vue2-smooth-scroll": "^1.1.0"
   },
   "devDependencies": {
