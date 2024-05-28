@@ -143,18 +143,18 @@ export default {
             border-radius: 5px;
         }
     }
-}
 
-@include breakpoint(phablet) {
+  @include breakpoint(phablet) {
     grid-template-columns: 50% 50%;
-}
-
-@include breakpoint(tablet) {
-    grid-template-columns: 33% 33% 33%;
-}
-
-@include breakpoint(desktophd) {
-    grid-template-columns: 25% 25% 25% 25%;
+  }
+  
+  @include breakpoint(tablet) {
+      grid-template-columns: 33% 33% 33%;
+  }
+  
+  @include breakpoint(desktophd) {
+      grid-template-columns: 25% 25% 25% 25%;
+  }
 }
 
 // If IE 11, use flexbox instead of CSS Grid
