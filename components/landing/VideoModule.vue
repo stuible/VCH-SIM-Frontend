@@ -46,10 +46,8 @@ export default {
                     JSON.stringify({
                         src: this.video.thumbnail,
                         w: 500,
-                        options: {
-                            "mode": "fitToWidth",
-                            "quality": 80
-                        },
+                        m: "fitToWidth",
+                        q: 80,
                     }), {
                         headers: {
                             "Content-Type": "application/json"
