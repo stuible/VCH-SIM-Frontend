@@ -207,6 +207,7 @@ svg.feedback {
 
 .options.reveal {
 
+/*
     .option.selected.true,
     .option.false:not(.selected) {
         border: solid 2px #50b350;
@@ -214,6 +215,15 @@ svg.feedback {
 
     .option.selected.false,
     .option.true:not(.selected) {
+        border: solid 2px #c54646;
+    }
+*/
+    
+    .option.true{
+        border: solid 2px #50b350;
+    }
+    
+    .option.false{
         border: solid 2px #c54646;
     }
 }
