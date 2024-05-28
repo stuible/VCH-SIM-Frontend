@@ -29,6 +29,10 @@ module.exports = {
   router: {
     base: '/',
   },
+  mode: 'spa',
+  generate: {
+    fallback: true
+  },
   css : [
     // '~/assets/scss/base.scss'
   ],
@@ -98,7 +102,8 @@ module.exports = {
   plugins: [
     '~plugins/filters.js',
     { src: '~/plugins/smooth-scroll.js', ssr: false },
-    '~plugins/lazyloadbackground'
+    '~plugins/lazyloadbackground',
+    { src: '~/plugins/nuxt-client-init.js', ssr: false }
   ],
   // sassResources: [
   //   resolve(__dirname, "./assets/scss/base.scss")
