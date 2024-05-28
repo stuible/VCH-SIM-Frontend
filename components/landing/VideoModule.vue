@@ -47,7 +47,7 @@ export default {
                         src: this.video.thumbnail,
                         w: 500,
                         options: {
-                            "mode": "resize",
+                            "mode": "fitToWidth",
                             "quality": 80
                         },
                     }), {
