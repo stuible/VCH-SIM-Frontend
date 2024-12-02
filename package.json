@@ -18,7 +18,7 @@
     "axios": "^0.18.1",
     "consola": "^2.9.0",
     "normalize-scss": "^7.0.1",
-    "nuxt": "^2.8.1",
+    "nuxt": "^2.15.8",
     "nuxt-sass-resources-loader": "^2.0.5",
     "sanitize-html": "^1.20.1",
     "vue2-smooth-scroll": "^1.1.0"
