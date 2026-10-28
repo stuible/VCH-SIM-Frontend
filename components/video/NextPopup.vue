@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import thumbnail from '~/assets/image/still.jpg'
 export default {
     props: {
         baseURL: String,
@@ -29,7 +28,6 @@ export default {
     data() {
 
         return {
-            thumbnail,
             show: Boolean,
             // isOpen: Boolean,
         }
